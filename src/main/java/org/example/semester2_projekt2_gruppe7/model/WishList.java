@@ -18,6 +18,8 @@ public class WishList {
         this.user_id = user_id;
         this.name = name;
     }
+    public WishList() {
+    }
 
     public int getId() {
         return id;
@@ -58,7 +60,8 @@ public class WishList {
                 ", user_id=" + user_id +
                 ", name='" + name + '\'' +
                 ", img='" + img + '\'' +
-                '}';
+                '}'
+                ;
     }
 }
 
