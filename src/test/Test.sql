@@ -35,4 +35,16 @@ CREATE TABLE wish(
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
-    (1,'Bil','Den skal være blå og stor',20000.50, 'coolpic2.png')
+    (1,'Bil','Den skal være blå og stor',20000.50, 'coolpic2.png');
+
+
+CREATE TABLE wishidea(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    wishlist_id int NOT NULL ,
+    user_id int NOT NULL ,
+    title VARCHAR(100),
+    description VARCHAR(500)
+);
+
+INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES
+    (1, 1, 'Majokrukke', 'En krukke til din majonæse');

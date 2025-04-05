@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish Idea Page</title>
+    <link th:href="@{wishidea.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Welcome to the Wish Idea Page</h1>
+
+<!-- Example link to the index page -->
+<a th:href="@{/}">Go back to the Index Page</a>
+
+<div class="container">
+    <div class="square" th:each="wishidea : ${wishidealist}">
+        <div>
+            <label>ID:</label>
+            <span th:text="${wishidea.id}">ID</span>
+        </div>
+        <div>
+            <label>Brand:</label>
+            <span th:text="${wishidea.wishlist_id}">wishlist_id</span>
+        </div>
+        <div>
+            <label>Modelyear:</label>
+            <span th:text="${wishidea.user_id}">user_id</span>
+        </div>
+        <div>
+            <label>Type:</label>
+            <span th:text="${wishidea.title}">title</span>
+        </div>
+        <div>
+            <label>Color:</label>
+            <span th:text="${wishidea.description}">description</span>
+        </div>
+    </div>
+
+</div>
+<div class="button">
+    <div class="modify-form">
+        <a th:href="@{/getCreateWishidea}">Lav ønske ide</a>
+        <form th:action="@{showwishidea}" method="get" class="modify-form">
+            <input type="number" name="id" placeholder="Wish Idea ID" required>
+            <button type="submit" class="btn">se ønske ide</button>
+        </form>
+
+        <form th:action="@{/deleteWishidea}" method="post" class="modify-form">
+            <input type="number" name="id" placeholder="Wish Idea som skal slettes" required>
+            <button type="submit" class="btn">Slet</button>
+        </form>
+
+        <form th:action="@{/getUpdateWishidea}" method="get" class="modify-form">
+            <input type="number" name="id" placeholder="Wish Idea som skal updateres" required>
+            <button type="submit" class="btn">updater ønske ide</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
