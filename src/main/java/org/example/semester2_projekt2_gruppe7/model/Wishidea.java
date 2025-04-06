@@ -22,6 +22,14 @@ public class Wishidea {
         this.description = description;
     }
 
+    public Wishidea(int id, String title, String description) {
+        this.id=id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Wishidea() {}
+
     public int getId() {
         return id;
     }

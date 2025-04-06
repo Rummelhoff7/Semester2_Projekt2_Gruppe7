@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
+
 @Controller
 public class WishideaController {
 
@@ -19,6 +22,7 @@ public class WishideaController {
     public String CreateWishidea() {
         return "createwishidea";
     }
+
 
     @PostMapping("/saveCreateWishidea")
     public String postCreateWishidea(@RequestParam ("wishlist_id")int wishlist_id,
@@ -42,24 +46,27 @@ public class WishideaController {
         return "updatewishidea";
     }
 
+
+
     @PostMapping("/saveUpdateWishidea")
     public String postupdateWishidea(@RequestParam ("id") int id,
-                                     @RequestParam ("wishlist_id")int wishlist_id,
-                                     @RequestParam ("user_id") int user_id,
                                      @RequestParam ("title") String title,
                                      @RequestParam ("description") String description){
         //Here you can add java code to example add img from Video 2 16min
 
-        Wishidea wishidea = new Wishidea(id, wishlist_id, user_id, title, description);
+        Wishidea wishidea = new Wishidea(id, title, description);
         wishideaRepository.update(wishidea);
         return "redirect:/wishidea";
     }
 
-    @GetMapping("/showwishidea")
-    public String showWishidea(@RequestParam ("id") int id, Model model) {
 
-        Wishidea wishidea = wishideaRepository.getWishideabyID(id);
-        model.addAttribute(wishidea);
+
+    @GetMapping("/showwishidea")
+    public String showWishidea(@RequestParam ("wishlist_id") int wishlist_id,@RequestParam ("user_id") int user_id, Model model) {
+
+        ArrayList<Wishidea> wishidealist = new ArrayList<>();
+        wishidealist = wishideaRepository.getWishideaby_wistlist_idANDuser_id(wishlist_id, user_id);
+        model.addAttribute(wishidealist);
 
         return "showwishidea";
     }

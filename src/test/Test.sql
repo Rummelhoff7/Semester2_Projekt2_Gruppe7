@@ -47,4 +47,9 @@ CREATE TABLE wishidea(
 );
 
 INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES
-    (1, 1, 'Majokrukke', 'En krukke til din majonæse');
+    (1, 1, 'Majokrukke', 'En krukke til din majonæse'),
+    (1, 1, 'Remokrukke', 'En krukke til din Remo'),
+    (1, 1, 'Ketchupkrukke', 'En krukke til din ketchup'),
+    (1, 1, 'Sennepkrukke', 'En krukke til din sennep')
+
+;

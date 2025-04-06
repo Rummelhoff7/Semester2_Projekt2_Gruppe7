@@ -10,12 +10,13 @@ public class InitData {
 
     private ArrayList<Wishidea> wishidealist = new ArrayList<>();
 
+
     public InitData() {
         wishidealist.add(new Wishidea(1,1,1,"lol","lol"));
         wishidealist.add(new Wishidea(2,1,1,"hat","flot"));
     }
 
-    public ArrayList<Wishidea> getWishidealist() {
+     public ArrayList<Wishidea> getWishidealist() {
         return wishidealist;
     }
 }

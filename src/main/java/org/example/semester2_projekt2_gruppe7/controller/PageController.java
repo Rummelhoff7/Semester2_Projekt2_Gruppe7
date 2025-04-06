@@ -2,6 +2,7 @@ package org.example.semester2_projekt2_gruppe7.controller;
 
 import org.example.semester2_projekt2_gruppe7.config.InitData;
 import org.example.semester2_projekt2_gruppe7.model.Wishidea;
+import org.example.semester2_projekt2_gruppe7.repository.WishideaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,9 @@ public class PageController {
     @Autowired
     InitData initData;
 
+    @Autowired
+    WishideaRepository wishideaRepository;
+
     @GetMapping("/")
     public String mainPage(){
         return "index";
@@ -23,9 +27,7 @@ public class PageController {
     @GetMapping("/wishidea")
     public String wishideaPage(Model model) {
         ArrayList<Wishidea> wishidealist = new ArrayList<>();
-
-        wishidealist.addAll(initData.getWishidealist());
-
+        wishidealist = wishideaRepository.getAllWishidea();
         model.addAttribute("wishidealist", wishidealist);
 
 
