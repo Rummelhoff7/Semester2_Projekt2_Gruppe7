@@ -116,6 +116,7 @@ public class UserRepository {
 
             statement.setString(1,updatedUser.getName());
             statement.setString(2, updatedUser.getPassword());
+            statement.setInt(3, updatedUser.getId());
 
             // executeUpdate = Ændrer og opdaterer databasen.
             statement.executeUpdate();

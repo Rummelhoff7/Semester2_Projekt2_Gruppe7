@@ -16,14 +16,14 @@ public class UserController {
     UserRepository userRepository;
 
 
-    @GetMapping("/getCreateUser")
-    public String getCreateUser (){
+    @GetMapping("/getCreatedUser")
+    public String getCreatedUser(){
         return "createUser";
     }
 
-    @PostMapping("saveCreateUser")
-    public String saveCreateUser (@RequestParam ("name") String name,
-                                  @RequestParam ("password") String password){
+    @PostMapping("createUser")
+    public String createUser(@RequestParam ("name") String name,
+                             @RequestParam ("password") String password){
 
         User user = new User (name, password);
         userRepository.saveUser(user); //video 2 20:00
