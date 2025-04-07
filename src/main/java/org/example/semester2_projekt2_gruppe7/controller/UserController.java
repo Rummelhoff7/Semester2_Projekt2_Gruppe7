@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class UserController {
 
@@ -27,7 +29,7 @@ public class UserController {
 
         User user = new User (name, password);
         userRepository.saveUser(user); //video 2 20:00
-        return "redirect:/userList";
+        return "redirect:/userPage";
     }
 
     @GetMapping("/showUser")
@@ -45,7 +47,7 @@ public class UserController {
                                   @RequestParam("password") String password){
         User user = new User (id, name, password);
         userRepository.updateUser(user);
-        return "redirect:/";
+        return "redirect:/userPage";
     }
 
 

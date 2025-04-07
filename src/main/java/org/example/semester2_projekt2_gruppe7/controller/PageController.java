@@ -20,11 +20,18 @@ public class PageController {
     // Retunér forsiden, hvis nogen prøver at komme ind på localhost
     @GetMapping("/")
     public String mainPage(Model model) {
-        ArrayList<User> userList = new ArrayList<>();
-        userList = userRepository.getAllUsers();
+        ArrayList<User> userList = userRepository.getAllUsers();
         model.addAttribute("userList", userList);
 
         return "index";
+    }
+
+
+    @GetMapping("/userPage")
+    public String userPage(Model model) {
+        ArrayList<User> userList = userRepository.getAllUsers();
+        model.addAttribute("userList", userList);
+        return "userPage";  // This corresponds to userPage.html
     }
 
 
