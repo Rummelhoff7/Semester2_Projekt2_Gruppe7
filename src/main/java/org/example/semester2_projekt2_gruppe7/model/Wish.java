@@ -8,7 +8,7 @@ public class Wish {
     String img;
     double price;
 
-    public Wish(int id, int user_id, String name, String description, String img) {
+    public Wish(int id, int user_id, String name, String description, String img, double price) {
         this.id = id;
         this.user_id = user_id;
         this.name = name;

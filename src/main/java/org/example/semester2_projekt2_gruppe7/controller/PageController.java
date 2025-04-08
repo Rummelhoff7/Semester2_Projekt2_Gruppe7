@@ -13,17 +13,14 @@ import java.util.ArrayList;
 @Controller
 public class PageController {
 
+
     @Autowired
     InitData initData;
 
     @Autowired
     WishRepository wishRepository;
 
-
-
-
-
-    @GetMapping("/")
+   @GetMapping("/")
     public String mainPage(Model model){
         ArrayList<Wish> wishes = new ArrayList<Wish>();
         wishes = wishRepository.getAllWish();

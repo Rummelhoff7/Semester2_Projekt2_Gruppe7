@@ -33,11 +33,10 @@ public class WishController {
                                  @RequestParam("name") String name,
                                  @RequestParam("description") String description,
                                  @RequestParam ("Image") String img,
-                                 @RequestParam("price")double price)
-    {
-        String img = wishService.getImage(name, description);
+                                 @RequestParam("price")double price) {
+        String image = wishService.getImage(name, description);
 
-        Wish wish = new Wish(id, user_id, name, description, img);
+        Wish wish = new Wish(id, user_id, name, description, img, price);
         wishRepo.save(wish);
         return "redirect:/";
     }
@@ -45,7 +44,7 @@ public class WishController {
     @GetMapping("/getUpdateWish")
     public String updateWish(@RequestParam("id") int id,int user_id, double price){
         Wish wish = wishRepo.getWishById(id);
-        model.addAttribute(car);
+       // model.addAttribute(wish);
         return "updateWish";
     }
 
@@ -58,17 +57,17 @@ public class WishController {
                                  @RequestParam("price") double price)
     {
 
-        String img = wishService.getImage(name, description);
-        Wish wish = new Wish(id, user_id, name, description, img);
+        String image = wishService.getImage(name, description);
+        Wish wish = new Wish(id, user_id, name, description, img, price);
         wishRepo.update(wish);
         return "redirect:/";
     }
 
     @GetMapping("/showWish")
-    public String showWish(RequestParam("id") int id, Model model){
+    public String showWish(@RequestParam("id") int id, Model model){
 
         Wish wish = wishRepo.getWishById(id);
-        model.addAttribute(car);
+        model.addAttribute(wish);
 
         return "showWish";
     }
