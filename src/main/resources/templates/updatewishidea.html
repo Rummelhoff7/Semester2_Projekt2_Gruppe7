@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Wish Idea Page</title>
+  <link th:href="@{wishidea.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+  <div class="form-container">
+    <h2>Create Wish Idea</h2>
+    <form th:action="@{saveUpdateWishidea}" method="post">
+      <input type="hidden" name="id" th:value="${wishidea.id}" />
+
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" th:value="${wishidea.title}" required>
+
+      <label for="description">Beskrivelse</label>
+      <input id="description" name="description" type="text" th:value="${wishidea.description}" required>
+
+      <button type="submit">Ændre dine ønske ide</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
