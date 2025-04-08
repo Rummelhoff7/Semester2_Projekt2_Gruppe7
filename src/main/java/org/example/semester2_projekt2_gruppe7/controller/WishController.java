@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class WishController {
 
-    @Autowired
     WishRepository wishRepo;
 
     @Autowired

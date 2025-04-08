@@ -35,4 +35,4 @@ CREATE TABLE wish(
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
-    (1,'Bil','Den skal være blå og stor',20000.50, 'coolpic2.png')
+    (2,'Ur','Den er lavet af guld og dyr',50000.00, 'ur.jpg')

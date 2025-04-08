@@ -1,6 +1,5 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
-import org.example.semester2_projekt2_gruppe7.config.InitData;
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.repository.WishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,6 @@ import java.util.ArrayList;
 @Controller
 public class PageController {
 
-
-    @Autowired
-    InitData initData;
 
     @Autowired
     WishRepository wishRepository;
