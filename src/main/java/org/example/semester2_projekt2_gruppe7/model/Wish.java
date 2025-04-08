@@ -6,13 +6,25 @@ public class Wish {
     String name;
     String description;
     String img;
+    double price;
 
-    Wish(int id, int user_id, String name, String description, String img) {
+    public Wish(int id, int user_id, String name, String description, String img) {
         this.id = id;
         this.user_id = user_id;
         this.name = name;
         this.description = description;
         this.img = img;
+        this.price = price;
+
+    }
+
+    public Wish() {}
+
+
+    public Wish(String name, String description, String img) {
+        this.name = name;
+        this.description = description;
+
 
     }
 
@@ -50,6 +62,14 @@ public class Wish {
 
     public String getImg() {
         return img;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setImg(String img) {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MainPage</title>
+  <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<div class ="container">
+  <div class ="square">
+    <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
+    <div>
+      <label>ID:</label>
+      <span th:text="${wish.id}">ID</span>
+    </div>
+    <div>
+      <label>User ID:</label>
+      <span th:text="${wish.user_id}">User ID</span>
+    </div>
+    <div>
+      <label>Name:</label>
+      <span th:text="${wish.name}">Name</span>
+    </div>
+    <div>
+      <label>Description:</label>
+      <span th:text="${wish.description}">Description</span>
+    </div>
+    <div>
+      <label>Img:</label>
+      <span th:text="${wish.img}">Img</span>
+    </div>
+  </div>
+  <a th:href="@{/}" class="btn">Back</a>
+</div>
+
+</body>
+</html>
