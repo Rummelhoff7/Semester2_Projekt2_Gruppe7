@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WishListController {
+
     @Autowired
     WishListRepository WishListRepo;
-
-
-    @Autowired
 
     @GetMapping("/getCreateWishList")
     public String createWishList() {

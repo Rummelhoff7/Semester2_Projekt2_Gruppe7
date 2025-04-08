@@ -1,4 +1,4 @@
-
+package org.example.semester2_projekt2_gruppe7.repository;
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.WishList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,10 @@ public class WishListRepository {
 
     @Autowired
     private DataSource dataSource;
-    public ArrayList<WishList> getAllCars() {
+
+    public ArrayList<WishList> getAllWishList() {
         ArrayList<WishList> wishList = new ArrayList<>();
-        String sql = "SELECT * FROM WishList";
+        String sql = "SELECT * FROM wishList";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
@@ -30,7 +31,7 @@ public class WishListRepository {
                 wishList1.setName(resultSet.getString("name"));
                 wishList1.setImg(resultSet.getString("img"));
 
-                wishList.add(wishList1);
+                wishList.add(wishList1); //måske ikke 1
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,7 +41,7 @@ public class WishListRepository {
     }
 
     public void save(WishList wishList) {
-        String sql = "INSERT INTO cars (id, userid, name,img) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO wishList (id, userid, name,img) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -56,7 +57,7 @@ public class WishListRepository {
     }
 
     public void delete(int id) {
-        String sql = "DELETE FROM WishList WHERE id = ?";
+        String sql = "DELETE FROM wishList WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
@@ -66,9 +67,9 @@ public class WishListRepository {
         }
     }
 
-    public WishList getCarById(int id) {
+    public WishList getWishListById(int id) {
         WishList wishList = null;
-        String sql = "SELECT * FROM cars WHERE id = ?";
+        String sql = "SELECT * FROM wishList WHERE id = ?";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -93,7 +94,7 @@ public class WishListRepository {
     }
 
     public void update(WishList wishList) {
-        String sql = "UPDATE cars SET brand = ?, modelyear = ?, type = ?, colour = ?, licenseplate = ?, img = ? WHERE id = ?";
+        String sql = "UPDATE wishList SET brand = ?, modelyear = ?, type = ?, colour = ?, licenseplate = ?, img = ? WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
