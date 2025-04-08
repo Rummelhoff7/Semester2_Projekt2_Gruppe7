@@ -4,6 +4,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -123,18 +128,38 @@ body {
 }
 
 .header {
-    display: flow;
     width: 80%;
-    height: 15%;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-bottom: solid 1px #4CAF50;
-    position: relative;
-    top: 50px;
-    left: 10%;
+    margin: auto;
+    margin-top: 1%;
+    border-bottom: solid 1px #7B7B2B;
+}
+.login_holder{
+    display: table;
+    margin: auto;
+    width: 48%;
+    height: 23em;
+    margin-top: 8%;
+    margin-bottom: 13%;
 }
 
-.login_holder{
-    position: relative;
-    display: flow;
+.login_btn{
+    background: #8DB856;
+    height: 100%;
+    width: 100%;
+    border-radius: 200px;
+    font-size: 75px;
+    font-family: auto;
+    color: white;
+}
+
+.footer{
+    padding: 0.1em;
+    color: white;
+    width: 100%;
+    background: #37692B;
+    text-align: center;
+}
+
+#icon{
+    height: 7em;
 }
