@@ -32,13 +32,11 @@ public class UserController {
         return "redirect:/userPage";
     }
 
-    @GetMapping("/showUser")
-    public String showUser(@RequestParam("id") int id, Model model) {
-
+    @GetMapping("/getUpdateUser")
+    public String updateUser(@RequestParam("id") int id, Model model) {
         User user = userRepository.getUserByID(id);
         model.addAttribute(user);
-
-        return "showUser";
+        return "updateUser";
     }
 
     @PostMapping("/saveUpdateUser")
@@ -50,6 +48,14 @@ public class UserController {
         return "redirect:/userPage";
     }
 
+    @GetMapping("/showUser")
+    public String showUser(@RequestParam("id") int id, Model model) {
+
+        User user = userRepository.getUserByID(id);
+        model.addAttribute(user);
+
+        return "showUser";
+    }
 
     // Hvis denne metode bliver udført, så bliver man sendt tilbage til forsiden
     @PostMapping("/deleteUser")
