@@ -2,15 +2,27 @@ package org.example.semester2_projekt2_gruppe7.model;
 
 public class Wish {
     int id;
-    int user_id;
+    int wishlist_id;
     String name;
     String description;
     String img;
     double price;
 
+
+    public Wish(String name, String description, String img, double price) {
+        this.name = name;
+        this.description = description;
+        this.img = img;
+        this.price = price;
+    }
+
+
+
+
+
     public Wish(int id, int user_id, String name, String description, String img, double price) {
         this.id = id;
-        this.user_id = user_id;
+        this.wishlist_id = user_id;
         this.name = name;
         this.description = description;
         this.img = img;
@@ -36,12 +48,12 @@ public class Wish {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getWishlist_id() {
+        return wishlist_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setWishlist_id(int wishlist_id) {
+        this.wishlist_id = wishlist_id;
     }
 
     public String getName() {
@@ -77,7 +89,7 @@ public class Wish {
     }
 
     public String toString(){
-        return "id "+id+ "user_id"+user_id+"name"+name +"description"+description+"img "+img;
+        return "id "+id+ "wishlist_id"+ wishlist_id +"name"+name +"description"+description+"img "+img;
     }
 
     }

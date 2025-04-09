@@ -7,15 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
 public class WishController {
 
+    @Autowired
     WishRepository wishRepo;
 
     @Autowired
@@ -25,23 +24,24 @@ public class WishController {
     public String createWish(){
         return "createWish";
 
+        // user_id skal ændres
     }
     @PostMapping("/saveCreateWish")
-    public String postCreateWish(@RequestParam("id") int id,
-                                 @RequestParam("user id")int user_id,
+    public String postCreateWish(
                                  @RequestParam("name") String name,
                                  @RequestParam("description") String description,
-                                 @RequestParam ("Image") String img,
                                  @RequestParam("price")double price) {
-        String image = wishService.getImage(name, description);
 
-        Wish wish = new Wish(id, user_id, name, description, img, price);
+        String img = wishService.getImage(name, description);
+
+        Wish wish = new Wish(name, description, img, price);
         wishRepo.save(wish);
         return "redirect:/";
     }
 
+    // OBS Skal kigges på
     @GetMapping("/getUpdateWish")
-    public String updateWish(@RequestParam("id") int id,int user_id, double price){
+    public String updateWish(@RequestParam("id") int id,int wishlist_id, double price){
         Wish wish = wishRepo.getWishById(id);
        // model.addAttribute(wish);
         return "updateWish";
@@ -49,7 +49,7 @@ public class WishController {
 
     @PostMapping("/saveUpdateWish")
     public String postUpdateWish(@RequestParam("id") int id,
-                                 @RequestParam("user id")int user_id,
+                                 @RequestParam("wishlist_id")int wishlist_id,
                                  @RequestParam("name") String name,
                                  @RequestParam("description") String description,
                                  @RequestParam ("Image") String img,
@@ -57,7 +57,7 @@ public class WishController {
     {
 
         String image = wishService.getImage(name, description);
-        Wish wish = new Wish(id, user_id, name, description, img, price);
+        Wish wish = new Wish(id, wishlist_id, name, description, img, price);
         wishRepo.update(wish);
         return "redirect:/";
     }

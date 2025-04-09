@@ -22,9 +22,6 @@ public class PageController {
         wishes = wishRepository.getAllWish();
         model.addAttribute("wishes", wishes);
 
-
-        model.addAttribute("wishes", wishes);
-
         return "index";
     }
 

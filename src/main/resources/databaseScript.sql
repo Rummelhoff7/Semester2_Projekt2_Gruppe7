@@ -35,4 +35,9 @@ CREATE TABLE wish(
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
-    (1,'Bil','Den skal være blå og stor',20000.50, 'coolpic2.png')
+    (1,'Tivoli-tur','En dejlig tur i tivoli for 2 med turpas',750.00, 'tivolitur.jpg')
+
+
+
+
+

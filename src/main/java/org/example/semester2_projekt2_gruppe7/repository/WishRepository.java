@@ -30,6 +30,8 @@ public class WishRepository {
                 wish.setId(resultSet.getInt("id"));
                 wish.setName(resultSet.getString("name"));
                 wish.setDescription(resultSet.getString("description"));
+                wish.setPrice(resultSet.getDouble("price"));
+                wish.setWishlist_id(resultSet.getInt("wishlist_id"));
                 wish.setImg(resultSet.getString("img"));
                 wishes.add(wish);
             }
@@ -78,12 +80,12 @@ public class WishRepository {
     }
 
     public void save (Wish wish){
-        String sql = "INSERT INTO Wish(id, user_id, name, description, img, price) VALUES (?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO Wish(id, wishlist_id, name, description, img, price) VALUES (?, ?, ?, ?,?,?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, wish.getId());
-            statement. setInt(2, wish.getUser_id());
+            statement.setInt(2, wish.getWishlist_id());
             statement.setString(3, wish.getName());
             statement.setString(4, wish.getDescription());
             statement.setString(5,wish.getImg());
