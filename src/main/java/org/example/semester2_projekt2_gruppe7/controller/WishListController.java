@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WishListController {
 
     @Autowired
-    WishListRepository WishListRepo;
+    WishListRepository wishListRepo;
 
     @GetMapping("/getCreateWishList")
     public String createWishList() {
@@ -31,13 +31,13 @@ public class WishListController {
        //String img = Service.getImg();
 
         WishList wishList = new WishList(id, user_id, name, img);
-        WishListRepo.save(wishList);
+        wishListRepo.save(wishList);
         return "redirect:/";
     }
 
     @GetMapping("/getUpdateWishList")
     public String updateWishList(@RequestParam("id") int id, Model model) {
-        WishList wishList = WishListRepo.getWishListById(id);
+        WishList wishList = wishListRepo.getWishListById(id);
         model.addAttribute(wishList);
         return "updateWishList";
     }
@@ -51,14 +51,14 @@ public class WishListController {
 
       //  String img = WishlistService.getImg(brand, colour);
        WishList wishList = new WishList(id, user_id, name, img);
-        WishListRepo.update(wishList);
+        wishListRepo.update(wishList);
         return "redirect:/";
 
     }
     @GetMapping("/showWishList")
     public String showWishList(@RequestParam("id") int id, Model model) {
 
-        WishList wishList = WishListRepo.getWishListById(id);
+        WishList wishList = wishListRepo.getWishListById(id);
         model.addAttribute(wishList);
 
         return "showWishList";
@@ -67,7 +67,7 @@ public class WishListController {
     @PostMapping("/deleteWishList")
     public String deleteWishList(@RequestParam("id") int id) {
 
-        WishListRepo.delete(id);
+        wishListRepo.delete(id);
 
         return "redirect:/";
     }

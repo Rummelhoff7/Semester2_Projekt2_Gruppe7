@@ -17,7 +17,7 @@ public class WishListRepository {
     private DataSource dataSource;
 
     public ArrayList<WishList> getAllWishList() {
-        ArrayList<WishList> wishList = new ArrayList<>();
+        ArrayList<WishList> wishlisting = new ArrayList<>();
         String sql = "SELECT * FROM wishList";
 
         try (Connection connection = dataSource.getConnection();
@@ -25,19 +25,19 @@ public class WishListRepository {
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
-                WishList wishList1 = new WishList();
-                wishList1.setId(resultSet.getInt("id"));
-                wishList1.setUser_id(resultSet.getInt("user_id"));
-                wishList1.setName(resultSet.getString("name"));
-                wishList1.setImg(resultSet.getString("img"));
+                WishList wishList = new WishList();
+                wishList.setId(resultSet.getInt("id"));
+                wishList.setUser_id(resultSet.getInt("user_id"));
+                wishList.setName(resultSet.getString("name"));
+                wishList.setImg(resultSet.getString("img"));
 
-                wishList.add(wishList1); //måske ikke 1
+                wishlisting.add(wishList); //måske ikke 1
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return wishList;
+        return wishlisting;
     }
 
     public void save(WishList wishList) {

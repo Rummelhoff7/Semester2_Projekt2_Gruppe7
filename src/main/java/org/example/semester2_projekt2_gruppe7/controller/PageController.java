@@ -23,10 +23,11 @@ public class PageController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
-        ArrayList<WishList> wishList = wishListRepo.getAllWishList();
-        model.addAttribute("wishList", wishList);
+        ArrayList<WishList> wishlisting = new ArrayList<>();
+        wishlisting = wishListRepo.getAllWishList();
+        model.addAttribute("wishlisting", wishlisting);
 
-        return "index";
+        return "wishlist";
 
     }
 }
