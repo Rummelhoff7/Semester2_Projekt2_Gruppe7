@@ -4,16 +4,18 @@
 <!-- Kommer fra login  -->
 <!-- Kommer fra createUser-->
 
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UserPage</title>
+  <title>MainPage</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
+<div class="header">
+  <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt ="Home Icon">
+</div>
 
 <h1> Velkommen til userpage!</h1>
 <div class="container">
@@ -31,6 +33,13 @@
       <span th:text="${user.password}">Password</span>
     </div>
   </div>
+</div>
+
+
+<div class="footer">
+  <p>Kontakt os!</p>
+  <p>Gavelisten@stud.kea.dk</p>
+
 </div>
 </body>
 </html>
