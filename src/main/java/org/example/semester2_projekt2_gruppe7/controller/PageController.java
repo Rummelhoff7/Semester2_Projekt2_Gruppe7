@@ -34,5 +34,12 @@ public class PageController {
         return "userPage";  // This corresponds to userPage.html
     }
 
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        return "login";
+    }
+
+
+
 
 }

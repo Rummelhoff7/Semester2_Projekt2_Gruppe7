@@ -1,3 +1,6 @@
+<!-- Skal sendes til login -->
+<!-- Skal måske sendes til userPage -->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,11 +11,22 @@
 </head>
 <body>
 
-<a th:href="@{/getCreatedUser}">createUser</a>
-<a th:href="@{/userPage}">userPage</a>
+<div class="header">
+
+    <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt ="Home Icon">
+</div>
+
+<div class="login_holder">
+    <a th:href="@{/login}">
+        <button type="submit" class="login_btn">Se ønskelister</button>
+    </a>
+</div>
 
 
-    </div>
+<div class="footer">
+    <p>Kontakt os!</p>
+    <p>Gavelisten@stud.kea.dk</p>
+
 </div>
 </body>
 </html>

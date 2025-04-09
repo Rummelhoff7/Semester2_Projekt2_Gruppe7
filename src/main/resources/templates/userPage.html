@@ -1,3 +1,10 @@
+<!-- Skal sendes til opret ønskeliste -->
+<!-- Skal sendes til ønskeliste-->
+<!-- Skal sendes til se venner -->
+<!-- Kommer fra login  -->
+<!-- Kommer fra createUser-->
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -7,6 +14,8 @@
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
+
+<h1> Velkommen til userpage!</h1>
 <div class="container">
   <div class="square" th:each="user : ${userList}">
     <div>
