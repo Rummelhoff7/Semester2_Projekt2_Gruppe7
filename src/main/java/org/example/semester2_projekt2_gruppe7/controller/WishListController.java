@@ -45,7 +45,7 @@ public class WishListController {
 
         WishList wishList = new WishList(user_id, name, img);
         wishListRepo.save(wishList);
-        return "redirect:/";
+        return "wishlist";
     }
 
 
@@ -67,7 +67,7 @@ public class WishListController {
       //  String img = WishlistService.getImg(brand, colour);
        WishList wishList = new WishList(id, user_id, name, img);
         wishListRepo.update(wishList);
-        return "redirect:/";
+        return "wishlist";
 
     }
     @GetMapping("/showWishList")
@@ -83,7 +83,7 @@ public class WishListController {
 
         wishListRepo.delete(id);
 
-        return "redirect:/";
+        return "wishlist";
     }
 
 }
