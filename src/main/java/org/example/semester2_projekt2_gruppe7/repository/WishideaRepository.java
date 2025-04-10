@@ -1,7 +1,5 @@
 package org.example.semester2_projekt2_gruppe7.repository;
 
-import org.example.semester2_projekt2_gruppe7.config.InitData;
-import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.Wishidea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,9 +13,6 @@ import java.util.ArrayList;
 
 @Repository
 public class WishideaRepository {
-
-    @Autowired
-    InitData initData;
 
     @Autowired
     private DataSource dataSource;
