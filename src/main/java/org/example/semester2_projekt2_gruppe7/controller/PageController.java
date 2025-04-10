@@ -24,16 +24,5 @@ public class PageController {
         return "index";
     }
 
-    @GetMapping("/wishidea")
-    public String wishideaPage(Model model) {
-        ArrayList<Wishidea> wishidealist = new ArrayList<>();
-        wishidealist = wishideaRepository.getAllWishidea();
-        model.addAttribute("wishidealist", wishidealist);
-
-
-        return "wishidea";  // This returns the wishidea.html template
-    }
-
-
 }
 

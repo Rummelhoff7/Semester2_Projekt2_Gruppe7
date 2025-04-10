@@ -18,6 +18,16 @@ public class WishideaController {
     @Autowired
     WishideaRepository wishideaRepository;
 
+    @GetMapping("/wishidea")
+    public String wishideaPage(Model model) {
+        ArrayList<Wishidea> wishidealist;
+        wishidealist = wishideaRepository.getAllWishidea();
+        model.addAttribute("wishidealist", wishidealist);
+
+
+        return "wishidea";  // This returns the wishidea.html template
+    }
+
     @GetMapping("/getCreateWishidea")
     public String CreateWishidea() {
         return "createwishidea";
