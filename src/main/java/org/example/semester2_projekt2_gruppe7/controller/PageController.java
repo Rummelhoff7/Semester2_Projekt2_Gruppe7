@@ -13,12 +13,6 @@ import java.util.ArrayList;
 @Controller
 public class PageController {
 
-    @Autowired
-    InitData initData;
-
-    @Autowired
-    WishideaRepository wishideaRepository;
-
     @GetMapping("/")
     public String mainPage(){
         return "index";

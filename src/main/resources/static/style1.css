@@ -142,7 +142,7 @@ img {
     margin-bottom: 13%;
 }
 
-.login_btn{
+.real_login_btn{
     background: #8DB856;
     height: 100%;
     width: 100%;
@@ -305,16 +305,6 @@ img {
     height: 23em;
     margin-top: 8%;
     margin-bottom: 13%;
-}
-
-.login_btn{
-    background: #8DB856;
-    height: 100%;
-    width: 100%;
-    border-radius: 200px;
-    font-size: 75px;
-    font-family: auto;
-    color: white;
 }
 
 .footer{
