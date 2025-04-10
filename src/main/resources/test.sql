@@ -35,7 +35,12 @@ CREATE TABLE wish(
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
-    (1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg');
+    (1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg'),
+(1,'YEAawdawdaw','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'badebold.jpg'),
+(1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg'),
+(1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg'),
+(1,'YEA','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg');
+
 
 
 CREATE TABLE wishidea(
@@ -53,5 +58,4 @@ INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES
                                                                    (1, 1, 'Sennepkrukke', 'En krukke til din sennep')
 
 ;
-
 
