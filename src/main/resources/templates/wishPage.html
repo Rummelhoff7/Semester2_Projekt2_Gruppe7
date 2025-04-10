@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MainPage</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<h1>Her ser du dine gaveønsker</h1>
+<div class ="container">
+    <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
+        <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
+        <div>
+            <label>Navn:</label>
+            <span th:text="${wish.name}">Name</span>
+        </div>
+        <div>
+            <label>Beskrivelse:</label>
+            <span th:text="${wish.description}">Description</span>
+        </div>
+        <div>
+            <label>Pris:</label>
+            <span th:text="${wish.price}+ DKK">Price</span>
+        </div>
+        <div>
+            <label>Gave ID:</label>
+            <span th:text="${wish.id}">ID</span>
+        </div>
+        <div>
+            <label>Gaveliste ID:</label>
+            <span th:text="${wish.wishlist_id}">User ID</span>
+        </div>
+
+    </div>
+</div>
+<form th:action="@{/showWish}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+    <input type="number" name="id" id="wishIdInput" required>
+</form>
+<script>
+    // Attach click event listener to all square div elements
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.addEventListener('click', function() {
+            // Get the wish idea ID stored in the data-id attribute of the clicked square
+            var wishId = this.getAttribute('data-id');
+
+            // Set the value of the hidden input field in the form
+            document.getElementById('wishIdInput').value = wishId;
+
+            // Submit the form to trigger the backend action
+            document.getElementById('wishUpdateForm').submit();
+        });
+    });
+</script>
+<div class="buttons">
+    <a th:href="@{/getCreateWish}" class="btn">Opret ønske</a>
+    <div class="modify-forms">
+        <form th:action="@{showWish}" method="get" class="=modify-form">
+            <input type="number" name="id" placeholder="Enter Wish ID to read" required>
+            <button type="submit" class="btn">Se ønske</button>
+        </form>
+
+        <form th:action="@{/deleteWish}" method="post" class="modify-form">
+            <input type="number" name="id" placeholder="Enter Wish ID to delete" required>
+            <button type="submit" class="btn">Slet ønske</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
