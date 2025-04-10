@@ -35,9 +35,23 @@ CREATE TABLE wish(
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
-    (1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg')
+    (1,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg');
 
 
+CREATE TABLE wishidea(
+                         id INT AUTO_INCREMENT PRIMARY KEY,
+                         wishlist_id int NOT NULL ,
+                         user_id int NOT NULL ,
+                         title VARCHAR(100),
+                         description VARCHAR(500)
+);
 
+INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES
+                                                                   (1, 1, 'Majokrukke', 'En krukke til din majonæse'),
+                                                                   (1, 1, 'Remokrukke', 'En krukke til din Remo'),
+                                                                   (1, 1, 'Ketchupkrukke', 'En krukke til din ketchup'),
+                                                                   (1, 1, 'Sennepkrukke', 'En krukke til din sennep')
+
+;
 
 
