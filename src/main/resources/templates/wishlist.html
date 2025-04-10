@@ -1,0 +1,55 @@
+<!-- KOPIER DETTE DOKUMENT TIL INDEX -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="square" th:each="wishList : ${wishlisting}">
+
+        <div>
+            <label>id:</label>
+            <span th:text="${wishList.id}">ID</span>
+        </div>
+        <div>
+            <label>user_id:</label>
+            <span th:text="${wishList.user_id}">user_id</span>
+        </div>
+        <div>
+            <label>name:</label>
+            <span th:text="${wishList.name}">name</span>
+        </div>
+        <div>
+            <label>img:</label>
+            <span th:text="${wishList.img}">img</span>
+        </div>
+
+</div>
+</div>
+
+<div class="buttons">
+    <a th:href="@{/getCreateWishList}" class="btn">Create</a>
+    <div class="modify-forms">
+        <form th:action="@{/showWishList}" method="get" class="modify-form">
+            <input type="number" name="id" placeholder="Enter WishList ID to read" required>
+            <button type="submit" class="btn">Read</button>
+        </form>
+
+        <form th:action="@{/deleteWishList}" method="post" class="modify-form">
+            <input type="number" name="id" placeholder="Enter WishList ID to delete" required>
+            <button type="submit" class="btn">Delete</button>
+        </form>
+
+        <form th:action="@{/getUpdateWishList}" method="get" class="modify-form">
+            <input type="number" name="id" placeholder="Enter WishList ID to update" required>
+            <button type="submit" class="btn">Update</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<!-- hello -->

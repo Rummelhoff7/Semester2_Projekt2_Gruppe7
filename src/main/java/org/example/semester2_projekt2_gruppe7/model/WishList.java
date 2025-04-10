@@ -13,12 +13,19 @@ public class WishList {
         this.img = img;
     }
 
+
     public WishList(int id, int user_id, String name) {
         this.id = id;
         this.user_id = user_id;
         this.name = name;
     }
     public WishList() {
+    }
+
+    public WishList(int user_id, String name, String img) {
+        this.user_id = user_id;
+        this.name = name;
+        this.img = img;
     }
 
     public int getId() {
