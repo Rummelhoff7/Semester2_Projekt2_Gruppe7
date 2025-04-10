@@ -43,11 +43,13 @@ public class WishController {
                                  @RequestParam("description") String description,
                                  @RequestParam("price")double price) {
 
+
         String img = wishService.getImage(name, description);
 
         Wish wish = new Wish(name, description, img, price);
+
         wishRepo.save(wish);
-        return "wishPage";
+        return "redirect:/wishPage";
     }
 
     // OBS Skal kigges på
@@ -63,14 +65,17 @@ public class WishController {
                                  @RequestParam("wishlist_id")int wishlist_id,
                                  @RequestParam("name") String name,
                                  @RequestParam("description") String description,
-                                 @RequestParam ("Image") String img,
+                                 @RequestParam ("img") String img,
                                  @RequestParam("price") double price)
     {
 
-        String image = wishService.getImage(name, description);
+        if (img == null || img.isEmpty()) {
+            img = wishRepo.getWishById(id).getImg();
+
+        }
         Wish wish = new Wish(id, wishlist_id, name, description, img, price);
         wishRepo.update(wish);
-        return "wishPage";
+        return "redirect:/wishPage";
     }
 
     @GetMapping("/showWish")
@@ -87,7 +92,7 @@ public class WishController {
 
         wishRepo.deleteWish(id);
 
-        return "wishPage";
+        return "redirect:/wishPage";
     }
 
 

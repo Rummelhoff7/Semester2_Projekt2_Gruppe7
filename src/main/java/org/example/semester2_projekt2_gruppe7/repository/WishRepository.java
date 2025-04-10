@@ -80,16 +80,15 @@ public class WishRepository {
     }
 
     public void save (Wish wish){
-        String sql = "INSERT INTO wish(id, wishlist_id, name, description, img, price) VALUES (?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO wish(wishlist_id, name, description, img, price) VALUES (?, ?, ?, ?,?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, wish.getId());
-            statement.setInt(2, wish.getWishlist_id());
-            statement.setString(3, wish.getName());
-            statement.setString(4, wish.getDescription());
-            statement.setString(5,wish.getImg());
-            statement.setDouble(6,wish.getPrice());
+            statement.setInt(1, wish.getWishlist_id());
+            statement.setString(2, wish.getName());
+            statement.setString(3, wish.getDescription());
+            statement.setString(4,wish.getImg());
+            statement.setDouble(5,wish.getPrice());
 
             statement.executeUpdate();
 
@@ -99,7 +98,7 @@ public class WishRepository {
     }
 
     public void update (Wish updatedWish) {
-        String sql = "UPDATE wish SET name = ?, description = ?, img = ?, price = ?, WHERE id = ?";
+        String sql = "UPDATE wish SET name = ?, description = ?, img = ?, price = ? WHERE id = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
