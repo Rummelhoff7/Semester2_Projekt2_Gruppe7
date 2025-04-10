@@ -1,9 +1,9 @@
 package org.example.semester2_projekt2_gruppe7.model;
 
 public class User { //Variabler skal nok være private.
-    int id;
-    String name;
-    String password;
+    private int id;
+    private String name;
+    private String password;
 
     public User(int id, String name, String password) {
         this.id = id;
