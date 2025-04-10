@@ -1,5 +1,6 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
+import org.example.semester2_projekt2_gruppe7.model.User;
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.repository.WishRepository;
 import org.example.semester2_projekt2_gruppe7.service.WishService;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 
 @Controller
 public class WishController {
@@ -19,6 +22,14 @@ public class WishController {
 
     @Autowired
     WishService wishService;
+
+
+    @GetMapping("/wishPage")
+    public String userPage(Model model) {
+        ArrayList<Wish> wishList = wishRepo.getAllWish();
+        model.addAttribute("userList", wishList);
+        return "wishPage";  // This corresponds to userPage.html
+    }
 
     @GetMapping("/getCreateWish")
     public String createWish(){
@@ -78,4 +89,6 @@ public class WishController {
 
         return "wishPage";
     }
+
+
 }
