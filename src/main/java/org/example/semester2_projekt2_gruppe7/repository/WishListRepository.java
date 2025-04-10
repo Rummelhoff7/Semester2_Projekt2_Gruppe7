@@ -41,11 +41,11 @@ public class WishListRepository {
     }
 
     public void save(WishList wishList) {
-        String sql = "INSERT INTO wishList (id, userid, name,img) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO wishList (user_id, name, img) VALUES (?, ?, ?)";
+
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, wishList.getId());
             statement.setInt(2, wishList.getUser_id());
             statement.setString(3, wishList.getName());
             statement.setString(4, wishList.getImg());
@@ -68,9 +68,8 @@ public class WishListRepository {
     }
 
     public WishList getWishListById(int id) {
-        WishList wishList = null;
+        WishList wishList = new WishList();
         String sql = "SELECT * FROM wishList WHERE id = ?";
-
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -78,7 +77,6 @@ public class WishListRepository {
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    wishList = new WishList();
                     wishList.setId(resultSet.getInt("id"));
                     wishList.setUser_id(resultSet.getInt("user_id"));
                     wishList.setName(resultSet.getString("name"));
@@ -94,14 +92,15 @@ public class WishListRepository {
     }
 
     public void update(WishList wishList) {
-        String sql = "UPDATE wishList SET brand = ?, modelyear = ?, type = ?, colour = ?, licenseplate = ?, img = ? WHERE id = ?";
+        String sql = "UPDATE wishList SET user_id = ?, name = ?, img = ? WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, wishList.getId());
-            statement.setInt(2, wishList.getUser_id());
-            statement.setString(3, wishList.getName());
-            statement.setString(4, wishList.getImg());
+            statement.setInt(1, wishList.getUser_id());
+            statement.setString(2, wishList.getName());
+            statement.setString(3, wishList.getImg());
+            statement.setInt(4, wishList.getId());
+
 
 
             statement.executeUpdate();
