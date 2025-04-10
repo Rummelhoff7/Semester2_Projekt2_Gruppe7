@@ -87,6 +87,15 @@ public class WishController {
         return "showWish";
     }
 
+    @GetMapping("/showWishbyWishList_id")
+    public String showWishbyWishList_id(@RequestParam("id") int wishlist_id, Model model){
+
+        ArrayList<Wish> wishList = wishRepo.getWishByWistList_id(wishlist_id);
+        model.addAttribute("wishList", wishList);
+        return "showWishbyWishList_id";
+
+    }
+
     @PostMapping("/deleteWish")
     public String deleteWish(@RequestParam("id") int id){
 

@@ -1,6 +1,7 @@
 package org.example.semester2_projekt2_gruppe7.repository;
 
 import org.example.semester2_projekt2_gruppe7.model.Wish;
+import org.example.semester2_projekt2_gruppe7.model.Wishidea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -65,6 +66,33 @@ public class WishRepository {
         }
         return wish;
     }
+
+    public ArrayList<Wish> getWishByWistList_id(int wishlist_id){
+        ArrayList<Wish> wishList = new ArrayList<>();
+    String sql = "SELECT * FROM wish WHERE wishlist_id = ?";
+
+        try(Connection connection = dataSource.getConnection();
+    PreparedStatement statement = connection.prepareStatement(sql)){
+
+        statement.setInt(1, wishlist_id);
+
+        try (ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                Wish wish = new Wish();
+                wish.setWishlist_id(resultSet.getInt("wishlist_id"));
+                wish.setId(resultSet.getInt("id"));
+                wish.setName(resultSet.getString("name"));
+                wish.setDescription(resultSet.getString("description"));
+                wish.setImg(resultSet.getString("img"));
+                wish.setPrice(resultSet.getDouble("price"));
+                wishList.add(wish);
+            }
+        }
+    }catch (SQLException e){
+        e.printStackTrace();
+    }
+        return wishList;
+}
 
 
     public void deleteWish (int id) {
