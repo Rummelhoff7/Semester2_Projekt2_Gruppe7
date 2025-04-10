@@ -17,7 +17,8 @@ public class WishListController {
     @Autowired
     WishListRepository wishListRepo;
 
-    @GetMapping("/")
+
+    @GetMapping("/wishlist")
     public String mainPage(Model model) {
         ArrayList<WishList> wishlisting = new ArrayList<>();
         wishlisting = wishListRepo.getAllWishList();
