@@ -36,7 +36,7 @@ public class WishController {
 
         Wish wish = new Wish(name, description, img, price);
         wishRepo.save(wish);
-        return "redirect:/";
+        return "wishPage";
     }
 
     // OBS Skal kigges på
@@ -59,7 +59,7 @@ public class WishController {
         String image = wishService.getImage(name, description);
         Wish wish = new Wish(id, wishlist_id, name, description, img, price);
         wishRepo.update(wish);
-        return "redirect:/";
+        return "wishPage";
     }
 
     @GetMapping("/showWish")
@@ -76,6 +76,6 @@ public class WishController {
 
         wishRepo.deleteWish(id);
 
-        return "redirect:/";
+        return "wishPage";
     }
 }
