@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Wish Idea Page</title>
+  <link th:href="@{Style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Welcome to the WishList Page</h1>
+
+<!-- Example link to the index page -->
+<a th:href="@{/}">Go back to the Index Page</a>
+
+<div class="container">
+  <div class="square">
+    <div>
+      <label>ID:</label>
+      <span th:text="${wishList.id}">ID</span>
+    </div>
+    <div>
+      <label>user_id:</label>
+      <span th:text="${wishList.user_id}">user_id</span>
+    </div>
+    <div>
+      <label>name:</label>
+      <span th:text="${wishList.name}">name</span>
+    </div>
+    <div>
+      <label>img:</label>
+      <span th:text="${wishList.img}">img</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

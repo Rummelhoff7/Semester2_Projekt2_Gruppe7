@@ -82,6 +82,8 @@ public class WishListRepository {
                     wishList.setName(resultSet.getString("name"));
                     wishList.setImg(resultSet.getString("img"));
 
+
+
                 }
             }
         } catch (SQLException e) {

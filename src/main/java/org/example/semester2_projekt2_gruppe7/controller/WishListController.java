@@ -37,12 +37,13 @@ public class WishListController {
         return "redirect:/";
     }
 
-    @GetMapping("/getUpdateWishList")
+    @GetMapping("/getCreatewishlist")
     public String updateWishList(@RequestParam("id") int id, Model model) {
         WishList wishList = wishListRepo.getWishListById(id);
         model.addAttribute(wishList);
         return "updateWishList";
     }
+
 
     @PostMapping("/saveUpdateWishList")
     public String postupdateWishList(
@@ -59,14 +60,13 @@ public class WishListController {
     }
     @GetMapping("/showWishList")
     public String showWishList(@RequestParam("id") int id, Model model) {
-        ArrayList<WishList> wishlisting = new ArrayList<>();
-        wishlisting = wishListRepo.getWishListById(id);
-        model.addAttribute(wishlisting);
+        WishList wishlist = wishListRepo.getWishListById(id);
+        model.addAttribute(wishlist);
 
         return "showWishList";
     }
 
-    @PostMapping("/deleteWishList")
+    @PostMapping("/deletewishlist")
     public String deleteWishList(@RequestParam("id") int id) {
 
         wishListRepo.delete(id);

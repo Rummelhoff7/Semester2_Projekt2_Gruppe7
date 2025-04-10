@@ -34,7 +34,7 @@
 <div class="buttons">
     <a th:href="@{/getCreatewishlist}" class="btn">Create</a>
     <div class="modify-forms">
-        <form th:action="@{/showwishlist}" method="get" class="modify-form">
+        <form th:action="@{/showWishList}" method="get" class="modify-form">
             <input type="number" name="id" placeholder="Enter WishList ID to read" required>
             <button type="submit" class="btn">Read</button>
         </form>
@@ -44,7 +44,7 @@
             <button type="submit" class="btn">Delete</button>
         </form>
 
-        <form th:action="@{/getUpdatewishlist}" method="get" class="modify-form">
+        <form th:action="@{/getUpdateWishList}" method="get" class="modify-form">
             <input type="number" name="id" placeholder="Enter WishList ID to update" required>
             <button type="submit" class="btn">Update</button>
         </form>
