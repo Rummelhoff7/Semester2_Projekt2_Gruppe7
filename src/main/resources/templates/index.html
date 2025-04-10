@@ -9,7 +9,7 @@
 <body>
 <h1>Her ser du dine gaveønsker</h1>
 <div class ="container">
-    <div class ="square" th:each="wish:${wishes}">
+    <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
         <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
         <div>
             <label>Navn:</label>
@@ -34,6 +34,24 @@
 
     </div>
 </div>
+<form th:action="@{/showWish}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+    <input type="number" name="id" id="wishIdInput" required>
+</form>
+<script>
+    // Attach click event listener to all square div elements
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.addEventListener('click', function() {
+            // Get the wish idea ID stored in the data-id attribute of the clicked square
+            var wishId = this.getAttribute('data-id');
+
+            // Set the value of the hidden input field in the form
+            document.getElementById('wishIdInput').value = wishId;
+
+            // Submit the form to trigger the backend action
+            document.getElementById('wishUpdateForm').submit();
+        });
+    });
+</script>
 <div class="buttons">
     <a th:href="@{/getCreateWish}" class="btn">Opret ønske</a>
     <div class="modify-forms">

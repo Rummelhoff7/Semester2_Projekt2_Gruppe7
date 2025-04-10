@@ -41,9 +41,9 @@ public class WishController {
 
     // OBS Skal kigges på
     @GetMapping("/getUpdateWish")
-    public String updateWish(@RequestParam("id") int id,int wishlist_id, double price){
+    public String updateWish(@RequestParam("id") int id, Model model){
         Wish wish = wishRepo.getWishById(id);
-       // model.addAttribute(wish);
+       model.addAttribute(wish);
         return "updateWish";
     }
 
