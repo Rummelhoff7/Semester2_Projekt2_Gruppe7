@@ -66,4 +66,17 @@ public class UserController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/userPage")
+    public String userPage(Model model) {
+        ArrayList<User> userList = userRepository.getAllUsers();
+        model.addAttribute("userList", userList);
+        return "userPage";  // This corresponds to userPage.html
+    }
+
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        return "login";
+    }
+
 }
