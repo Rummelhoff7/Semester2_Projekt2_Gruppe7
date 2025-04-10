@@ -17,10 +17,21 @@ public class WishListController {
     @Autowired
     WishListRepository wishListRepo;
 
+    @GetMapping("/")
+    public String mainPage(Model model) {
+        ArrayList<WishList> wishlisting = new ArrayList<>();
+        wishlisting = wishListRepo.getAllWishList();
+        model.addAttribute("wishlisting", wishlisting);
+
+        return "wishlist";
+
+    }
+
     @GetMapping("/getCreateWishList")
     public String createWishList() {
         return "createWishList";
     }
+
 
     @PostMapping("/saveCreateWishList")
     public String postCreateWishList(

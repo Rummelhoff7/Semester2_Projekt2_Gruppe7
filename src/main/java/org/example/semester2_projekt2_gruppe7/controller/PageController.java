@@ -20,14 +20,4 @@ public class PageController {
     public String wishlistPage() {
         return "wishlist";
     }
-
-    @GetMapping("/")
-    public String mainPage(Model model) {
-        ArrayList<WishList> wishlisting = new ArrayList<>();
-        wishlisting = wishListRepo.getAllWishList();
-        model.addAttribute("wishlisting", wishlisting);
-
-        return "wishlist";
-
-    }
 }
