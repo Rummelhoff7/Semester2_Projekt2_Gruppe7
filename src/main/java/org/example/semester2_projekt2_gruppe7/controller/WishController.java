@@ -26,8 +26,8 @@ public class WishController {
 
     @GetMapping("/wishPage")
     public String userPage(Model model) {
-        ArrayList<Wish> wishList = wishRepo.getAllWish();
-        model.addAttribute("userList", wishList);
+        ArrayList<Wish> wishes = wishRepo.getAllWish();
+        model.addAttribute("userList", wishes);
         return "wishPage";  // This corresponds to userPage.html
     }
 

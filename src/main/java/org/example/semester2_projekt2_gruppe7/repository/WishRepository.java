@@ -19,7 +19,7 @@ public class WishRepository {
 
     public ArrayList<Wish> getAllWish() {
         ArrayList<Wish> wishes = new ArrayList<>();
-        String sql = "SELECT * FROM Wish";
+        String sql = "SELECT * FROM wish";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class WishRepository {
 
     public Wish getWishById(int id){
         Wish wish = new Wish();
-        String sql = "SELECT * FROM Wish WHERE id = ?";
+        String sql = "SELECT * FROM wish WHERE id = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)){
@@ -68,7 +68,7 @@ public class WishRepository {
 
 
     public void deleteWish (int id) {
-        String sql = "DELETE FROM Wish WHERE id = ?";
+        String sql = "DELETE FROM wish WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -80,7 +80,7 @@ public class WishRepository {
     }
 
     public void save (Wish wish){
-        String sql = "INSERT INTO Wish(id, wishlist_id, name, description, img, price) VALUES (?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO wish(id, wishlist_id, name, description, img, price) VALUES (?, ?, ?, ?,?,?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
