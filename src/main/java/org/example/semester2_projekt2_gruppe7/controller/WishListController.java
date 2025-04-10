@@ -24,7 +24,6 @@ public class WishListController {
 
     @PostMapping("/saveCreateWishList")
     public String postCreateWishList(
-            @RequestParam("id") int id,
             @RequestParam("user_id") int user_id,
             @RequestParam("name") String name,
             @RequestParam("img") String img)
@@ -32,12 +31,13 @@ public class WishListController {
 
        //String img = Service.getImg();
 
-        WishList wishList = new WishList(id, user_id, name, img);
+        WishList wishList = new WishList(user_id, name, img);
         wishListRepo.save(wishList);
         return "redirect:/";
     }
 
-    @GetMapping("/getCreatewishlist")
+
+    @GetMapping("/getUpdateWishList")
     public String updateWishList(@RequestParam("id") int id, Model model) {
         WishList wishList = wishListRepo.getWishListById(id);
         model.addAttribute(wishList);
@@ -46,7 +46,7 @@ public class WishListController {
 
 
     @PostMapping("/saveUpdateWishList")
-    public String postupdateWishList(
+    public String postUpdateWishList(
             @RequestParam("id") int id,
             @RequestParam("user_id") int user_id,
             @RequestParam("name") String name,
@@ -66,7 +66,7 @@ public class WishListController {
         return "showWishList";
     }
 
-    @PostMapping("/deletewishlist")
+    @PostMapping("/deleteWishList")
     public String deleteWishList(@RequestParam("id") int id) {
 
         wishListRepo.delete(id);

@@ -46,9 +46,9 @@ public class WishListRepository {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(2, wishList.getUser_id());
-            statement.setString(3, wishList.getName());
-            statement.setString(4, wishList.getImg());
+            statement.setInt(1, wishList.getUser_id());
+            statement.setString(2, wishList.getName());
+            statement.setString(3, wishList.getImg());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -103,9 +103,8 @@ public class WishListRepository {
             statement.setString(3, wishList.getImg());
             statement.setInt(4, wishList.getId());
 
-
-
             statement.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

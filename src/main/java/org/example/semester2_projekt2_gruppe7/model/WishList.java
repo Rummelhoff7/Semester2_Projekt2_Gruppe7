@@ -22,6 +22,12 @@ public class WishList {
     public WishList() {
     }
 
+    public WishList(int user_id, String name, String img) {
+        this.user_id = user_id;
+        this.name = name;
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }
