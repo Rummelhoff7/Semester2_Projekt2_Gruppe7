@@ -1,12 +1,12 @@
 package org.example.semester2_projekt2_gruppe7.model;
 
 public class Wish {
-    int id;
-    int wishlist_id;
-    String name;
-    String description;
-    String img;
-    double price;
+    private int id;
+    private int wishlist_id;
+    private String name;
+    private String description;
+    private String img;
+    private double price;
 
 
     public Wish(String name, String description, String img, double price) {
@@ -36,7 +36,6 @@ public class Wish {
     public Wish(String name, String description, String img) {
         this.name = name;
         this.description = description;
-
 
     }
 

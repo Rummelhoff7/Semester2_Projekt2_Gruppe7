@@ -1,11 +1,11 @@
 package org.example.semester2_projekt2_gruppe7.model;
 
 public class Wishidea {
-    int id;
-    int wishlist_id;
-    int user_id;
-    String title;
-    String description;
+    private int id;
+    private int wishlist_id;
+    private int user_id;
+    private String title;
+    private String description;
 
     public Wishidea(int id, int wishlist_id, int user_id, String title, String description) {
         this.id = id;

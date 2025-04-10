@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Rediger Ønske</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MainPage</title>
+    <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
+
+<div class="header">
+    <a th:href="@{/}">
+        <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
+    </a>
+</div>
+
+
 
 <div class="container">
     <div class="form-container">
@@ -34,5 +43,10 @@
     </div>
 </div>
 
+<div class="footer">
+    <p>Kontakt os!</p>
+    <p>Gavelisten@stud.kea.dk</p>
+
+</div>
 </body>
 </html>

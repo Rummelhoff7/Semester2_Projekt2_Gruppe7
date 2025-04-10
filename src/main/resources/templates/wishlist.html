@@ -2,16 +2,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MainPage</title>
-    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
-<div class="container">
-    <div class="square" th:each="wishList : ${wishlisting}" th:data-id="${wishList.id}" >
 
-        <div>
+<div class="header">
+    <a th:href="@{/}">
+        <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
+    </a>
+</div>
+
+
+<div>
             <label>id:</label>
             <span th:text="${wishList.id}">ID</span>
         </div>
@@ -66,6 +71,11 @@
             <button type="submit" class="btn">Update</button>
         </form>
     </div>
+</div>
+<div class="footer">
+    <p>Kontakt os!</p>
+    <p>Gavelisten@stud.kea.dk</p>
+
 </div>
 </body>
 </html>

@@ -35,7 +35,7 @@ public class UserController {
     @GetMapping("/getUpdateUser")
     public String updateUser(@RequestParam("id") int id, Model model) {
         User user = userRepository.getUserByID(id);
-        model.addAttribute(user);
+        model.addAttribute("user", user);
         return "updateUser";
     }
 
@@ -52,7 +52,7 @@ public class UserController {
     public String showUser(@RequestParam("id") int id, Model model) {
 
         User user = userRepository.getUserByID(id);
-        model.addAttribute(user);
+        model.addAttribute("user", user);
 
         return "showUser";
     }

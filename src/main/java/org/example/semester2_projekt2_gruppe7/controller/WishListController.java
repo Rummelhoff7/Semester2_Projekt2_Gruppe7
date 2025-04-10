@@ -20,8 +20,7 @@ public class WishListController {
 
     @GetMapping("/wishlist")
     public String mainPage(Model model) {
-        ArrayList<WishList> wishlisting = new ArrayList<>();
-        wishlisting = wishListRepo.getAllWishList();
+        ArrayList<WishList> wishlisting = wishListRepo.getAllWishList();
         model.addAttribute("wishlisting", wishlisting);
 
         return "wishlist";

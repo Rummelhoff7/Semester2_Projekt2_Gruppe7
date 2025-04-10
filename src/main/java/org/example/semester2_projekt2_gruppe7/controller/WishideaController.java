@@ -52,7 +52,7 @@ public class WishideaController {
     @GetMapping("/getUpdateWishidea")
     public String updateWishidea(@RequestParam("id") int id, Model model) {
         Wishidea wishidea = wishideaRepository.getWishideabyID(id);
-        model.addAttribute(wishidea);
+        model.addAttribute("wishidea", wishidea);
         return "updatewishidea";
     }
 
@@ -74,9 +74,8 @@ public class WishideaController {
     @GetMapping("/showwishidea")
     public String showWishidea(@RequestParam ("wishlist_id") int wishlist_id,@RequestParam ("user_id") int user_id, Model model) {
 
-        ArrayList<Wishidea> wishidealist = new ArrayList<>();
-        wishidealist = wishideaRepository.getWishideaby_wistlist_idANDuser_id(wishlist_id, user_id);
-        model.addAttribute(wishidealist);
+        ArrayList<Wishidea> wishidealist = wishideaRepository.getWishideaby_wishlist_idANDuser_id(wishlist_id, user_id);
+        model.addAttribute("wishidealist", wishidealist);
 
         return "showwishidea";
     }

@@ -87,7 +87,7 @@ public class WishController {
     public String showWish(@RequestParam("id") int id, Model model){
 
         Wish wish = wishRepo.getWishById(id);
-        model.addAttribute(wish);
+        model.addAttribute("wish", wish);
 
         return "showWish";
     }

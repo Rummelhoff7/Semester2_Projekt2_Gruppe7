@@ -68,7 +68,7 @@ public class WishideaRepository {
         return wishidea;
     }
 
-    public ArrayList<Wishidea> getWishideaby_wistlist_idANDuser_id(int wishlist_id, int user_id) {
+    public ArrayList<Wishidea> getWishideaby_wishlist_idANDuser_id(int wishlist_id, int user_id) {
         ArrayList<Wishidea> wishideaList = new ArrayList<>();
 
         String sql = "SELECT * FROM wishidea WHERE wishlist_id = ? and user_id = ?";
@@ -84,7 +84,7 @@ public class WishideaRepository {
                     Wishidea wishidea = new Wishidea();
                     wishidea.setId(resultSet.getInt("id"));
                     wishidea.setWishlist_id(resultSet.getInt("wishlist_id"));
-                    wishidea.setWishlist_id(resultSet.getInt("wishlist_id"));
+                    wishidea.setWishlist_id(resultSet.getInt("wishlist_id")); //!!
                     wishidea.setTitle(resultSet.getString("title"));
                     wishidea.setDescription(resultSet.getString("description"));
                     wishideaList.add(wishidea);

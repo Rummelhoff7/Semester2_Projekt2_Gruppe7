@@ -1,10 +1,10 @@
 package org.example.semester2_projekt2_gruppe7.model;
 
 public class WishList {
-    int id;
-    int user_id;
-    String name;
-    String img;
+    private int id;
+    private int user_id;
+    private String name;
+    private String img;
 
     public WishList(int id, int user_id, String name, String img) {
         this.id = id;
