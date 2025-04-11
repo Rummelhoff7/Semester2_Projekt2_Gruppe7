@@ -47,23 +47,6 @@
 </script>
 
 <a th:href="@{/getcreatewishidea(wishlist_id=${param.wishlist_id})}">Add Wish Idea</a>
-
-<div class="container">
-    <div class="form-container">
-        <h2>Create Wish Idea</h2>
-        <form th:action="@{/saveCreateWishidea}" method="post">
-            <input type="hidden" name="wishlist_id" th:value="${param.wishlist_id}" />
-            <label for="title">Title</label>
-            <input id="title" name="title" type="text">
-
-            <label for="description">Beskrivelse</label>
-            <input id="description" name="description" type="text">
-
-            <button type="submit">Lav ønske ide</button>
-        </form>
-    </div>
-</div>
-
 <div class="footer">
     <p>Kontakt os!</p>
     <p>Gavelisten@stud.kea.dk</p>
