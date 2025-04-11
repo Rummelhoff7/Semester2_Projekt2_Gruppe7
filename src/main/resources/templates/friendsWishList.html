@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MainPage</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+
+<div class="header">
+    <div class="header-text">
+        <a th:href="@{/}">
+            <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
+        </a>
+        <h1>Gave listen</h1>
+    </div>
+</div>
+
+
+<!-- Example link to the index page -->
+<a th:href="@{/}">Go back to the Index Page</a>
+<div>
+    <h1 th:text="${user.name}">Ønskeliste Navn</h1>
+</div>
+<div class="container">
+    <div class="square">
+        <div>
+            <label>ID:</label>
+            <span th:text="${wishList.id}">ID</span>
+        </div>
+        <div>
+            <label>user_id:</label>
+            <span th:text="${wishList.user_id}">user_id</span>
+        </div>
+        <div>
+            <label>name:</label>
+            <span th:text="${wishList.name}">name</span>
+        </div>
+        <div>
+            <label>img:</label>
+            <span th:text="${wishList.img}">img</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="wish_holder">
+    <a th:href="@{/friendWishPage}">
+        <button type="submit" class="wish_btn">Se venners ønsker</button>
+    </a>
+</div>
+<div class="footer">
+    <p>Kontakt os!</p>
+    <p>Gavelisten@stud.kea.dk</p>
+
+</div>
+</body>
+</html>

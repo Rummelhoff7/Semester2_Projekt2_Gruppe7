@@ -1,6 +1,9 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
+import org.example.semester2_projekt2_gruppe7.model.User;
+import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.WishList;
+import org.example.semester2_projekt2_gruppe7.repository.UserRepository;
 import org.example.semester2_projekt2_gruppe7.repository.WishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,8 @@ public class WishListController {
     @Autowired
     WishListRepository wishListRepo;
 
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/wishlist")
     public String mainPage(Model model) {
@@ -75,6 +80,19 @@ public class WishListController {
         model.addAttribute(wishlist);
 
         return "showWishList";
+    }
+
+    @GetMapping("/showWishListbyUser_id")
+    public String showWishListbyUser_id(@RequestParam("id") int id, Model model){
+
+        User user = userRepository.getUserByID(id);
+        model.addAttribute("user", user);
+
+        ArrayList<Wish> wishList = wishListRepo.getWishListbyUser_id(id);
+        model.addAttribute("wishList", wishList);
+
+        return "showWishbyWishList_id";
+
     }
 
     @PostMapping("/deleteWishList")

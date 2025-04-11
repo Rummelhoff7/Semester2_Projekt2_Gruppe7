@@ -26,11 +26,7 @@
 
 <h1> Velkommen til userpage!</h1>
 <div class="container">
-  <div class="square" th:each="user : ${userList}">
-    <div>
-      <label>ID:</label>
-      <span th:text="${user.id}">ID</span>
-    </div>
+  <div class="square" th:each="user : ${userList}" th:data-id="${user.id}">
     <div>
       <label>Name:</label>
       <span th:text="${user.name}">Name</span>
@@ -41,10 +37,27 @@
     </div>
   </div>
 </div>
+<form th:action="@{/showWishListbyUser_id}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+  <input type="number" name="id" id="wishIdInput" required>
+</form>
+<script>
+  // Attach click event listener to all square div elements
+  document.querySelectorAll('.square').forEach(function(square) {
+    square.addEventListener('click', function() {
+      // Get the wish idea ID stored in the data-id attribute of the clicked square
+      var wishId = this.getAttribute('data-id');
 
+      // Set the value of the hidden input field in the form
+      document.getElementById('wishIdInput').value = wishId;
+
+      // Submit the form to trigger the backend action
+      document.getElementById('wishUpdateForm').submit();
+    });
+  });
+</script>
 
 <div class="wish_holder">
-  <a th:href="@{/friendWishPage}">
+  <a th:href="@{/friendsWishList}">
     <button type="submit" class="wish_btn">Se venners ønsker</button>
   </a>
 </div>
