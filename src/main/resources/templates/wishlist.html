@@ -14,23 +14,23 @@
         <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
     </a>
 </div>
-
-
-<div>
+<div class="container">
+    <div class="square" th:each="wishlist:${wishlisting}" th:data-id="${wishlist.id}">
+        <div>
             <label>id:</label>
-            <span th:text="${wishList.id}">ID</span>
+            <span th:text="${wishlist.id}">ID</span>
         </div>
         <div>
             <label>user_id:</label>
-            <span th:text="${wishList.user_id}">user_id</span>
+            <span th:text="${wishlist.user_id}">user_id</span>
         </div>
         <div>
             <label>name:</label>
-            <span th:text="${wishList.name}">name</span>
+            <span th:text="${wishlist.name}">name</span>
         </div>
         <div>
             <label>img:</label>
-            <span th:text="${wishList.img}">img</span>
+            <span th:text="${wishlist.img}">img</span>
         </div>
 
 </div>
