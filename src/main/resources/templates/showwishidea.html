@@ -17,35 +17,51 @@
     </div>
 </div>
 
-
-
-<!-- Example link to the index page -->
-<a th:href="@{/}">Go back to the Index Page</a>
-
 <div class="container">
-    <div class="square" th:each="wishidea : ${wishideaList}" >
+    <div class="square" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">
         <div>
-            <label>ID:</label>
-            <span th:text="${wishidea.id}">ID</span>
+            <h4 th:text="${wishidea.title}">title</h4>
         </div>
         <div>
-            <label>Brand:</label>
-            <span th:text="${wishidea.wishlist_id}">wishlist_id</span>
-        </div>
-        <div>
-            <label>Modelyear:</label>
-            <span th:text="${wishidea.user_id}">user_id</span>
-        </div>
-        <div>
-            <label>Type:</label>
-            <span th:text="${wishidea.title}">title</span>
-        </div>
-        <div>
-            <label>Color:</label>
             <span th:text="${wishidea.description}">description</span>
         </div>
     </div>
+</div>
+<form th:action="@{/getUpdateWishidea}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+    <input type="number" name="id" id="wishIdInput" required>
+</form>
+<script>
+    // Attach click event listener to all square div elements
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.addEventListener('click', function() {
+            // Get the wish idea ID stored in the data-id attribute of the clicked square
+            var wishId = this.getAttribute('data-id');
 
+            // Set the value of the hidden input field in the form
+            document.getElementById('wishIdInput').value = wishId;
+
+            // Submit the form to trigger the backend action
+            document.getElementById('wishUpdateForm').submit();
+        });
+    });
+</script>
+<div class="container">
+    <div class="form-container">
+        <h2>Create Wish Idea</h2>
+        <!-- The wishlist_id and user_id will be set dynamically from the URL -->
+        <form th:action="@{/saveCreateWishidea}" method="post">
+            <input type="hidden" name="wishlist_id" th:value="${param.wishlist_id}" />
+            <input type="hidden" name="user_id" th:value="${param.user_id}" />
+
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text">
+
+            <label for="description">Beskrivelse</label>
+            <input id="description" name="description" type="text">
+
+            <button type="submit">Lav ønske ide</button>
+        </form>
+    </div>
 </div>
 
 <div class="footer">

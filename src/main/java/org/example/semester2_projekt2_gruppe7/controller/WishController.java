@@ -98,7 +98,6 @@ public class WishController {
 
         return "showWish";
     }
-
     @GetMapping("/showWishbyWishList_id")
     public String showWishbyWishList_id(@RequestParam("id") int id, Model model){
 
@@ -109,6 +108,19 @@ public class WishController {
         model.addAttribute("wishList", wishList);
 
         return "showWishbyWishList_id";
+
+    }
+
+    @GetMapping("/showFriendsWishbyWishList_id")
+    public String showFriendsWishbyWishList_id(@RequestParam("id") int id, Model model){
+
+        WishList wishlist = wishListRepo.getWishListById(id);
+        model.addAttribute("wishlist", wishlist);
+
+        ArrayList<Wish> wishList = wishRepo.getWishByWistList_id(id);
+        model.addAttribute("wishList", wishList);
+
+        return "friendWishPage";
 
     }
 

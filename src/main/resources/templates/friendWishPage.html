@@ -17,41 +17,53 @@
   </div>
 </div>
 
+<h1>Gave listen:</h1>
 
-<h1>Her ser du dine venners gaveønsker</h1>
-<div class ="container">
-  <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
-    <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
+<div>
+  <h1 th:text="${wishlist.name}">Ønskeliste Navn</h1>
+</div>
+
+<div class="container">
+  <div class="square" th:each="wish:${wishList}"
+       th:data-id="${wishlist.id}"
+       th:data-Userid="${wishlist.user_id}">
+    <img th:src="@{'/img/'+${wish.img}}" alt="Wish image"/>
     <div>
-      <label>Navn:</label>
-      <span th:text="${wish.name}">Name</span>
+      <h4 th:text="${wish.name}">Name</h4>
     </div>
     <div>
-      <label>Beskrivelse:</label>
       <span th:text="${wish.description}">Description</span>
     </div>
-    <div>
-      <label>Pris:</label>
-      <span th:text="${wish.price}+ DKK">Price</span>
-    </div>
-    <div>
   </div>
 </div>
+<form th:action="@{/showwishidea}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+  <input type="number" name="wishlist_id" id="wishIdInput" required>
+  <input type="number" name="user_id" id="userIdInput">
+</form>
 <script>
   // Attach click event listener to all square div elements
   document.querySelectorAll('.square').forEach(function(square) {
     square.addEventListener('click', function() {
       // Get the wish idea ID stored in the data-id attribute of the clicked square
-      var wishId = this.getAttribute('data-id');
+      var wishlist_id = this.getAttribute('data-id');
+      var user_id = this.getAttribute('data-Userid');
+
 
       // Set the value of the hidden input field in the form
-      document.getElementById('wishIdInput').value = wishId;
+      document.getElementById('wishIdInput').value = wishlist_id;
+      document.getElementById('userIdInput').value = user_id;
+
 
       // Submit the form to trigger the backend action
       document.getElementById('wishUpdateForm').submit();
     });
   });
 </script>
+
+
+<div class="buttons">
+  <a th:href="@{/}" class="btn">Back</a>
+</div>
 
 
 <div class="footer">
@@ -61,3 +73,4 @@
 </div>
 </body>
 </html>
+>

@@ -88,10 +88,10 @@ public class WishListController {
         User user = userRepository.getUserByID(id);
         model.addAttribute("user", user);
 
-        ArrayList<Wish> wishList = wishListRepo.getWishListbyUser_id(id);
-        model.addAttribute("wishList", wishList);
+        ArrayList<WishList> wishListing = wishListRepo.getWishListbyUser_id(id);
+        model.addAttribute("wishListing", wishListing);
 
-        return "showWishbyWishList_id";
+        return "friendsWishList";
 
     }
 

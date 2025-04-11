@@ -1,5 +1,6 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.semester2_projekt2_gruppe7.model.Wishidea;
 import org.example.semester2_projekt2_gruppe7.repository.WishideaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,14 +60,17 @@ public class WishideaController {
 
 
     @PostMapping("/saveUpdateWishidea")
-    public String postupdateWishidea(@RequestParam ("id") int id,
-                                     @RequestParam ("title") String title,
-                                     @RequestParam ("description") String description){
-        //Here you can add java code to example add img from Video 2 16min
+    public String postUpdateWishidea(@RequestParam("id") int id,
+                                     @RequestParam("title") String title,
+                                     @RequestParam("description") String description,
+                                     @RequestParam("wishlist_id") int wishlist_id,
+                                     @RequestParam("user_id") int user_id) {
 
+        // Process the request (e.g., save or update the wish idea)
         Wishidea wishidea = new Wishidea(id, title, description);
         wishideaRepository.update(wishidea);
-        return "redirect:/wishidea";
+
+        return "redirect:/showwishidea?wishlist_id=" + wishlist_id + "&user_id=" + user_id;
     }
 
 
@@ -81,11 +85,13 @@ public class WishideaController {
     }
 
     @PostMapping("/deleteWishidea")
-    public String deleteWishidea(@RequestParam ("id") int id){
+    public String deleteWishidea(@RequestParam("id") int id,
+                                 @RequestParam("wishlist_id") int wishlist_id,
+                                 @RequestParam("user_id") int user_id){
 
         wishideaRepository.deleteWishidea(id);
 
-        return "redirect:/wishidea";
+        return "redirect:/showwishidea?wishlist_id=" + wishlist_id + "&user_id=" + user_id;
     }
 
 }

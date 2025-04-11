@@ -17,39 +17,36 @@
     </div>
 </div>
 
-
-<!-- Example link to the index page -->
-<a th:href="@{/}">Go back to the Index Page</a>
 <div>
-    <h1 th:text="${user.name}">Ønskeliste Navn</h1>
+    <h1 th:text="${user.name}">Ønskeliste Navn</h1> <h1>Ønske lister</h1>
 </div>
-<div class="container">
-    <div class="square">
+<div class="container"  >
+    <div class="square" th:each="wishlist:${wishListing}" th:data-id="${wishlist.id}">
         <div>
-            <label>ID:</label>
-            <span th:text="${wishList.id}">ID</span>
+            <h4 th:text="${wishlist.name}">name</h4>
         </div>
-        <div>
-            <label>user_id:</label>
-            <span th:text="${wishList.user_id}">user_id</span>
-        </div>
-        <div>
-            <label>name:</label>
-            <span th:text="${wishList.name}">name</span>
-        </div>
-        <div>
-            <label>img:</label>
-            <span th:text="${wishList.img}">img</span>
-        </div>
+        <img th:src="@{'/img/'+${wishlist.img}}" alt="Wish awdawdawimage"/>
     </div>
 
 </div>
+<form th:action="@{/showFriendsWishbyWishList_id}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
+    <input type="number" name="id" id="wishIdInput" required>
+</form>
+<script>
+    // Attach click event listener to all square div elements
+    document.querySelectorAll('.square').forEach(function(square) {
+        square.addEventListener('click', function() {
+            // Get the wish idea ID stored in the data-id attribute of the clicked square
+            var wishId = this.getAttribute('data-id');
 
-<div class="wish_holder">
-    <a th:href="@{/friendWishPage}">
-        <button type="submit" class="wish_btn">Se venners ønsker</button>
-    </a>
-</div>
+            // Set the value of the hidden input field in the form
+            document.getElementById('wishIdInput').value = wishId;
+
+            // Submit the form to trigger the backend action
+            document.getElementById('wishUpdateForm').submit();
+        });
+    });
+</script>
 <div class="footer">
     <p>Kontakt os!</p>
     <p>Gavelisten@stud.kea.dk</p>
