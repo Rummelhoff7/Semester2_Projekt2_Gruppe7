@@ -3,8 +3,10 @@ package org.example.semester2_projekt2_gruppe7.controller;
 
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.WishList;
+import org.example.semester2_projekt2_gruppe7.model.Wishidea;
 import org.example.semester2_projekt2_gruppe7.repository.WishListRepository;
 import org.example.semester2_projekt2_gruppe7.repository.WishRepository;
+import org.example.semester2_projekt2_gruppe7.repository.WishideaRepository;
 import org.example.semester2_projekt2_gruppe7.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ public class WishController {
     WishListRepository wishListRepo;
     @Autowired
     WishService wishService;
+    @Autowired
+    WishideaRepository wishideaRepo;
 
 
     @GetMapping("/wishPage")
@@ -98,6 +102,7 @@ public class WishController {
 
         return "showWish";
     }
+
     @GetMapping("/showWishbyWishList_id")
     public String showWishbyWishList_id(@RequestParam("id") int id, Model model){
 
@@ -106,6 +111,9 @@ public class WishController {
 
         ArrayList<Wish> wishList = wishRepo.getWishByWistList_id(id);
         model.addAttribute("wishList", wishList);
+
+        ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
+        model.addAttribute("wishidealist", wishidealist);
 
         return "showWishbyWishList_id";
 
@@ -119,6 +127,9 @@ public class WishController {
 
         ArrayList<Wish> wishList = wishRepo.getWishByWistList_id(id);
         model.addAttribute("wishList", wishList);
+
+        ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
+        model.addAttribute("wishidealist", wishidealist);
 
         return "friendWishPage";
 

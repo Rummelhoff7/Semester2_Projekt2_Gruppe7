@@ -29,7 +29,7 @@ CREATE TABLE wishList(
 );
 
 INSERT INTO wishList(user_id, name, img) VALUES
-    (1, 'Gave', 'pikachu.jpg'),
+    (1, 'Gavertilmig', 'pikachu.jpg'),
     (2, 'Juleønsker', 'solbriller.jpg'),
     (3, 'Rejseønsker', 'sommerhus.jpg'),
     (4, 'Fylveøsnker', 'tivolitur.jpg'),

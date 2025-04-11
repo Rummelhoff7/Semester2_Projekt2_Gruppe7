@@ -55,6 +55,18 @@
     });
   });
 </script>
+<h1>Gave ideer:</h1>
+<div class="container">
+  <div class="square" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">
+    <div>
+      <h4 th:text="${wishidea.title}">title</h4>
+    </div>
+    <div>
+      <span th:text="${wishidea.description}">description</span>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="buttons">
