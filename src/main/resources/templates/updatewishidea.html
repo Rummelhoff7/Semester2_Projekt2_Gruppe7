@@ -24,7 +24,6 @@
     <form th:action="@{/saveUpdateWishidea}" method="post">
       <input type="hidden" name="id" th:value="${wishidea.id}" />
       <input type="hidden" name="wishlist_id" th:value="${wishidea.wishlist_id}" />
-      <input type="hidden" name="user_id" th:value="${wishidea.user_id}" />
 
       <label for="title">Title</label>
       <input id="title" name="title" type="text" th:value="${wishidea.title}" required>
@@ -37,7 +36,6 @@
       <form th:action="@{/deleteWishidea}" method="post" class="modify-form">
         <input type="hidden" name="id" th:value="${wishidea.id}" />
         <input type="hidden" name="wishlist_id" th:value="${wishidea.wishlist_id}" />
-        <input type="hidden" name="user_id" th:value="${wishidea.user_id}" />
         <button type="submit" class="btn">Slet</button>
       </form>
 

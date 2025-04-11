@@ -68,25 +68,24 @@ INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
 CREATE TABLE wishidea(
                          id INT AUTO_INCREMENT PRIMARY KEY,
                          wishlist_id int NOT NULL ,
-                         user_id int NOT NULL ,
                          title VARCHAR(100),
                          description VARCHAR(500)
 );
 
-INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES
-                                                                   (1, 1, 'Majokrukke', 'En krukke til din majonæse'),
-                                                                   (2, 2, 'Remokrukke', 'En krukke til din Remo'),
-                                                                   (3, 3, 'Ketchupkrukke', 'En krukke til din ketchup'),
-                                                                   (4, 4, 'Sennepkrukke', 'En krukke til din sennep'),
-                                                                   (5, 5, 'Sennepkrukke', 'En krukke til din sennep'),
-                                                                   (6, 1, 'Majokrukke', 'En krukke til din majonæse'),
-                                                                   (7, 2, 'Remokrukke', 'En krukke til din Remo'),
-                                                                   (8, 3, 'Ketchupkrukke', 'En krukke til din ketchup'),
-                                                                   (9, 4, 'Sennepkrukke', 'En krukke til din sennep'),
-                                                                   (10, 5, 'Sennepkrukke', 'En krukke til din sennep'),
-                                                                   (2, 2, 'Majokrukke', 'En krukke til din majonæse'),
-                                                                   (5, 5, 'Remokrukke', 'En krukke til din Remo'),
-                                                                   (1, 1, 'Ketchupkrukke', 'En krukke til din ketchup'),
-                                                                   (3, 3, 'Sennepkrukke', 'En krukke til din sennep'),
-                                                                   (9, 4, 'Sennepkrukke', 'En krukke til din sennep')
+INSERT INTO wishidea(wishlist_id,title, description) VALUES
+                                                                   (1,'Majokrukke', 'En krukke til din majonæse'),
+                                                                   (2,'Remokrukke', 'En krukke til din Remo'),
+                                                                   (3,'Ketchupkrukke', 'En krukke til din ketchup'),
+                                                                   (4,'Sennepkrukke', 'En krukke til din sennep'),
+                                                                   (5,'Sennepkrukke', 'En krukke til din sennep'),
+                                                                   (6,'Majokrukke', 'En krukke til din majonæse'),
+                                                                   (7,'Remokrukke', 'En krukke til din Remo'),
+                                                                   (8, 'Ketchupkrukke', 'En krukke til din ketchup'),
+                                                                   (9,'Sennepkrukke', 'En krukke til din sennep'),
+                                                                   (10,'Sennepkrukke', 'En krukke til din sennep'),
+                                                                   (2,'Majokrukke', 'En krukke til din majonæse'),
+                                                                   (5,'Remokrukke', 'En krukke til din Remo'),
+                                                                   (1,'Ketchupkrukke', 'En krukke til din ketchup'),
+                                                                   (3,'Sennepkrukke', 'En krukke til din sennep'),
+                                                                   (9,'Sennepkrukke', 'En krukke til din sennep')
 ;

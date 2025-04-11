@@ -45,14 +45,14 @@
         });
     });
 </script>
+
+<a th:href="@{/getcreatewishidea(wishlist_id=${param.wishlist_id})}">Add Wish Idea</a>
+
 <div class="container">
     <div class="form-container">
         <h2>Create Wish Idea</h2>
-        <!-- The wishlist_id and user_id will be set dynamically from the URL -->
         <form th:action="@{/saveCreateWishidea}" method="post">
             <input type="hidden" name="wishlist_id" th:value="${param.wishlist_id}" />
-            <input type="hidden" name="user_id" th:value="${param.user_id}" />
-
             <label for="title">Title</label>
             <input id="title" name="title" type="text">
 

@@ -29,7 +29,6 @@ public class WishideaRepository {
                 Wishidea wishidea = new Wishidea();
                 wishidea.setId(resultSet.getInt("id"));
                 wishidea.setWishlist_id(resultSet.getInt("wishlist_id"));
-                wishidea.setUser_id(resultSet.getInt("user_id"));
                 wishidea.setTitle(resultSet.getString("title"));
                 wishidea.setDescription(resultSet.getString("description"));
                 wishideaList.add(wishidea);
@@ -55,7 +54,6 @@ public class WishideaRepository {
                 if(resultSet.next()){
                     wishidea.setId(resultSet.getInt("id"));
                     wishidea.setWishlist_id(resultSet.getInt("wishlist_id"));
-                    wishidea.setUser_id(resultSet.getInt("user_id"));
                     wishidea.setTitle(resultSet.getString("title"));
                     wishidea.setDescription(resultSet.getString("description"));
                 }
@@ -68,16 +66,15 @@ public class WishideaRepository {
         return wishidea;
     }
 
-    public ArrayList<Wishidea> getWishideaby_wishlist_idANDuser_id(int wishlist_id, int user_id) {
+    public ArrayList<Wishidea> getWishideaby_wishlist_id(int wishlist_id) {
         ArrayList<Wishidea> wishideaList = new ArrayList<>();
 
-        String sql = "SELECT * FROM wishidea WHERE wishlist_id = ? and user_id = ?";
+        String sql = "SELECT * FROM wishidea WHERE wishlist_id = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)){
 
             statement.setInt(1, wishlist_id);
-            statement.setInt(2, user_id);
 
             try(ResultSet resultSet = statement.executeQuery()){
                 while(resultSet.next()){
@@ -116,7 +113,7 @@ public class WishideaRepository {
     }
 
     public void save(Wishidea wishidea){
-        String sql = "INSERT INTO wishidea(wishlist_id, user_id, title, description) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO wishidea(wishlist_id, title, description) VALUES(?,?,?)";
 
 
 
@@ -126,13 +123,11 @@ public class WishideaRepository {
             //Here you can write java code to wishlist_id and user_id
 
             statement.setInt(1, wishidea.getWishlist_id());
-            statement.setInt(2, wishidea.getUser_id());
-
-
-            statement.setString(3, wishidea.getTitle());
-            statement.setString(4, wishidea.getDescription());
+            statement.setString(2, wishidea.getTitle());
+            statement.setString(3, wishidea.getDescription());
 
             statement.executeUpdate();
+            System.out.println("Saving wish with wishlist_id: " + wishidea.getWishlist_id());
 
         } catch (SQLException e){
             e.printStackTrace();

@@ -34,10 +34,6 @@
             <span th:text="${wishidea.wishlist_id}">wishlist_id</span>
         </div>
         <div>
-            <label>User id:</label>
-            <span th:text="${wishidea.user_id}">user_id</span>
-        </div>
-        <div>
             <label>Title:</label>
             <span th:text="${wishidea.title}">title</span>
         </div>
@@ -72,7 +68,6 @@
 
         <form th:action="@{showwishidea}" method="get" class="modify-form">
             <input type="number" name="wishlist_id" placeholder="Wish Idea ID" required>
-            <input type="number" name="user_id" placeholder="Wish Idea ID" required>
             <button type="submit" class="btn">se ønske ide</button>
         </form>
 

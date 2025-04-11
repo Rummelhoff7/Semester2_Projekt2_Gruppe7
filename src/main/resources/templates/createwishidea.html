@@ -21,7 +21,8 @@
 <div class="container">
     <div class="form-container">
         <h2>Create Wish Idea</h2>
-        <form th:action="@{saveCreateWishidea}" method="post">
+        <form th:action="@{/saveCreateWishidea}" method="post">
+            <input type="hidden" name="wishlist_id" th:value="${wishlist_id}" />
             <label for="title">Title</label>
             <input id="title" name="title" type="text">
 
@@ -32,6 +33,7 @@
         </form>
     </div>
 </div>
+
 <div class="footer">
     <p>Kontakt os!</p>
     <p>Gavelisten@stud.kea.dk</p>
