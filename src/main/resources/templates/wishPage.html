@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MainPage</title>
     <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{baggrund.css}">
 </head>
 <body>
 
@@ -14,8 +15,7 @@
     </a>
 </div>
 
-
-<h1>Her ser du dine gaveønsker</h1>
+<h1 class="main-title">Her ser du dine gaveønsker</h1>
 <div class ="container">
     <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
         <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
