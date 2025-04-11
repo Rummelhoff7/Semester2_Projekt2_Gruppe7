@@ -36,6 +36,13 @@ public class WishController {
         return "wishPage";  // This corresponds to userPage.html
     }
 
+    @GetMapping("/friendWishPage")
+    public String friendswishpage(Model model) {
+        ArrayList<Wish> wishes = wishRepo.getAllWish();
+        model.addAttribute("wishes", wishes);
+        return "friendWishPage";  // This corresponds to userPage.html
+    }
+
     @GetMapping("/getCreateWish")
     public String createWish(){
         return "createWish";

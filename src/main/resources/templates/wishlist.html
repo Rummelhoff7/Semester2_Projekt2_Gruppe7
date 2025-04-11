@@ -10,9 +10,12 @@
 <body>
 
 <div class="header">
-    <a th:href="@{/}">
-        <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
-    </a>
+    <div class="header-text">
+        <a th:href="@{/}">
+            <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
+        </a>
+        <h1>Gave listen</h1>
+    </div>
 </div>
 <div class="container">
     <div class="square" th:each="wishlist:${wishlisting}" th:data-id="${wishlist.id}">
@@ -35,6 +38,7 @@
 
 </div>
 </div>
+<a th:href="@{/userPage}">Se venner!</a>
 <form th:action="@{/showWishbyWishList_id}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
     <input type="number" name="id" id="wishIdInput" required>
 </form>

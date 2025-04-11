@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MainPage</title>
+  <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+
+<div class="header">
+  <div class="header-text">
+    <a th:href="@{/}">
+      <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
+    </a>
+    <h1>Gave listen</h1>
+  </div>
+</div>
+
+
+<h1>Her ser du dine venners gaveønsker</h1>
+<div class ="container">
+  <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
+    <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
+    <div>
+      <label>Navn:</label>
+      <span th:text="${wish.name}">Name</span>
+    </div>
+    <div>
+      <label>Beskrivelse:</label>
+      <span th:text="${wish.description}">Description</span>
+    </div>
+    <div>
+      <label>Pris:</label>
+      <span th:text="${wish.price}+ DKK">Price</span>
+    </div>
+    <div>
+      <label>Gave ID:</label>
+      <span th:text="${wish.id}">ID</span>
+    </div>
+    <div>
+      <label>Gaveliste ID:</label>
+      <span th:text="${wish.wishlist_id}">User ID</span>
+    </div>
+
+  </div>
+</div>
+<script>
+  // Attach click event listener to all square div elements
+  document.querySelectorAll('.square').forEach(function(square) {
+    square.addEventListener('click', function() {
+      // Get the wish idea ID stored in the data-id attribute of the clicked square
+      var wishId = this.getAttribute('data-id');
+
+      // Set the value of the hidden input field in the form
+      document.getElementById('wishIdInput').value = wishId;
+
+      // Submit the form to trigger the backend action
+      document.getElementById('wishUpdateForm').submit();
+    });
+  });
+</script>
+
+
+<div class="footer">
+  <p>Kontakt os!</p>
+  <p>Gavelisten@stud.kea.dk</p>
+
+</div>
+</body>
+</html>
