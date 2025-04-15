@@ -25,10 +25,17 @@ public class UserController {
 
     @PostMapping("createUser")
     public String createUser(@RequestParam ("name") String name,
-                             @RequestParam ("password") String password){
+                             @RequestParam ("password") String password,
+                             Model model){
 
         User user = new User (name, password);
-        userRepository.saveUser(user); //video 2 20:00
+        boolean success = userRepository.saveUser(user);
+
+        // Retunere false i saveUser(), dvs. at der allerede findes et brugernavn.
+        if(!success){
+            model.addAttribute("error", "Brugernavn findes allerede, skriv venligst en nyt brugernavn.");
+            return "createUser";
+        }
         return "redirect:/wishlist";
     }
 

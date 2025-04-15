@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 @Repository
@@ -112,7 +109,7 @@ public class UserRepository {
 
 
 
-    public void saveUser (User user){
+    public boolean saveUser (User user){
         //Skriver ikke id, da sql database-id er på AUTO INCREMENT.
       String sql = "INSERT INTO user (name, password) VALUES (?,?)";
 
@@ -123,11 +120,17 @@ public class UserRepository {
           statement.setString(2, user.getPassword());
 
           statement.executeUpdate();
+          return true;
 
+          //Denne exception hjælper med at håndtere sql, når et username allerede findes.
+          // I sql.test står den som unique.
+      } catch (SQLIntegrityConstraintViolationException e) {
+          System.out.println("Username already exists");
+          return false;
 
       } catch (SQLException e) {
           e.printStackTrace();
-      }
+      } return false;
     }
 
 

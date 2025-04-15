@@ -25,15 +25,12 @@
 
 
 <h1> Velkommen til dine venners ønsker!</h1>
+<p1> Her kan du se alle dine venners ønskelister.</p1>
 <div class="container">
   <div class="square" th:each="user : ${userList}" th:data-id="${user.id}">
     <div>
       <label>Name:</label>
       <span th:text="${user.name}">Name</span>
-    </div>
-    <div>
-      <label>Password:</label>
-      <span th:text="${user.password}">Password</span>
     </div>
   </div>
 </div>

@@ -37,6 +37,12 @@
   </div>
 </div>
 
+<!-- Username findes allerede, printer en error ud.-->
+<div th:if="${error}" class="error">
+  <p th:text="${error}"></p>
+</div>
+
+
 <div class="footer">
   <p>Kontakt os!</p>
   <p>Gavelisten@stud.kea.dk</p>
