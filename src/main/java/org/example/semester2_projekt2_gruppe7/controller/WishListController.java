@@ -27,7 +27,6 @@ public class WishListController {
     public String mainPage(Model model) {
         ArrayList<WishList> wishlisting = wishListRepo.getAllWishList();
         model.addAttribute("wishlisting", wishlisting);
-
         return "wishlist";
 
     }

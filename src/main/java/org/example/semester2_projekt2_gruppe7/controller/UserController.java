@@ -29,7 +29,7 @@ public class UserController {
 
         User user = new User (name, password);
         userRepository.saveUser(user); //video 2 20:00
-        return "redirect:/userPage";
+        return "redirect:/wishlist";
     }
 
     @GetMapping("/getUpdateUser")
@@ -45,7 +45,7 @@ public class UserController {
                                   @RequestParam("password") String password){
         User user = new User (id, name, password);
         userRepository.updateUser(user);
-        return "redirect:/userPage";
+        return "redirect:/wishlist";
     }
 
     @GetMapping("/showUser")
@@ -79,4 +79,29 @@ public class UserController {
         return "login";
     }
 
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password) {
+        int userID = userRepository.authenticateUser(username, password);
+        if (userID != -1) {
+            return "redirect:/wishlist?user_ID=" + userID;
+        } else {
+
+            return "redirect:/loginError";
+        }
+    }
+
+    @GetMapping("/loginError")
+    public String loginError() {
+        return "loginError";
+    }
+    @PostMapping("/loginError")
+    public String loginError(@RequestParam String username, @RequestParam String password) {
+        int userID = userRepository.authenticateUser(username, password);
+        if (userID != -1) {
+            return "redirect:/wishlist?wishListID=" + userID;
+        } else {
+            return "redirect:/loginError";
+        }
+    }
 }

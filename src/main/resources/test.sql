@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS gaveListen;
 
 CREATE DATABASE gaveListen;

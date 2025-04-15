@@ -20,6 +20,24 @@
   </div>
 </div>
 
+<h2>Login</h2>
+<form class="form1" th:action="@{/login}" th:object="${user}" method="post">
+  <input class="input1" type="text" id="username" name="username" placeholder="Brugernavn" required><br>
+  <input class="input1" type="password" id="password" name="password" placeholder="Kodeord"  required><br>
+  <button class="button1" type="submit">Login</button>
+  <br>
+  <p1>Forkert brugernavn eller kodeord. Prøv igen.</p1>
+  <br>
+</form>
+<br>
+<a th:href="@{/getCreatedUser}">
+  <button type="submit" class="login_btn">Opret Bruger</button>
+</a>
+<br>
+<a href="/" style="text-decoration: none;">
+  <button class="button1">Tilbage til forsiden</button>
+</a>
+
 
 <div class="footer">
   <p>Kontakt os!</p>

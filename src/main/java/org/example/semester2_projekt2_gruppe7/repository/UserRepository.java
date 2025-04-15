@@ -41,6 +41,29 @@ public class UserRepository {
 
     }
 
+    // Metode til at finde User i databasen
+    public int authenticateUser(String name, String password) {
+        String sql = "SELECT * FROM user WHERE name = ? AND password = ?";
+
+        // Connect til database
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            // ? placeholders bliver sat ind i statements
+            statement.setString(1, name);
+            statement.setString(2, password);
+
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
 
     public User getUserByID (int id) {
         User user = new User();
