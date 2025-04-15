@@ -26,7 +26,9 @@ CREATE TABLE wishList(
                          id INT AUTO_INCREMENT PRIMARY KEY,
                          user_id INT NOT NULL ,
                          name VARCHAR(50) NOT NULL ,
-                         img VARCHAR(1000)
+                         img VARCHAR(1000) ,
+                         FOREIGN KEY (user_id)
+                         REFERENCES user(id)
 );
 
 INSERT INTO wishList(user_id, name, img) VALUES
@@ -48,7 +50,9 @@ CREATE TABLE wish(
                      name VARCHAR(50) NOT NULL ,
                      description VARCHAR(100),
                      price DOUBLE,
-                     img VARCHAR(1000)
+                     img VARCHAR(1000),
+                     FOREIGN KEY (wishlist_id)
+                     REFERENCES wishList(id)
 );
 
 INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
