@@ -82,8 +82,8 @@ public class WishListController {
         return "showWishList";
     }
 
-    @GetMapping("/showWishListbyUser_id")
-    public String showWishListbyUser_id(@RequestParam("id") int id, Model model){
+    @GetMapping("/showFriends_WishListbyUser_id")
+    public String showFriends_WishListbyUser_id(@RequestParam("id") int id, Model model){
 
         User user = userRepository.getUserByID(id);
         model.addAttribute("user", user);
