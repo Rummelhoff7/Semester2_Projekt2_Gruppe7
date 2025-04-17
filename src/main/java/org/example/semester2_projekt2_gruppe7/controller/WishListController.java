@@ -24,11 +24,14 @@ public class WishListController {
     UserRepository userRepository;
 
     @GetMapping("/wishlist")
-    public String mainPage(Model model) {
-        ArrayList<WishList> wishlisting = wishListRepo.getAllWishList();
-        model.addAttribute("wishlisting", wishlisting);
-        return "wishlist";
+    public String mainPage(@RequestParam("user_ID") int id, Model model) {
+        User user = userRepository.getUserByID(id);
+        model.addAttribute("user", user);
 
+        ArrayList<WishList> wishListing = wishListRepo.getWishListbyUser_id(id);
+        model.addAttribute("wishListing", wishListing);
+
+        return "wishlist";
     }
 
     @GetMapping("/getCreateWishList")
