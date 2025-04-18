@@ -23,9 +23,11 @@
     <div class="square" th:each="wish : ${wishes}" th:data-id="${wish.id}">
         <img th:src="@{'/img/' + ${wish.img}}" alt="Wish image"/>
         <div>
+            <label>Navn:</label>
             <span th:text="${wish.name}">Name</span>
         </div>
         <div>
+            <label>Beskrivelse:</label>
             <span th:text="${wish.description}">Description</span>
         </div>
         <div>

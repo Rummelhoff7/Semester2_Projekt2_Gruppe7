@@ -33,6 +33,10 @@
       <label>Billede:</label>
       <span th:text="${wish.img}">Img</span>
     </div>
+    <div>
+      <label>Pris:</label>
+      <span th:text="${wish.price}">Img</span>
+    </div>
     <div class="buttons">
       <a th:href="@{/getUpdateWish(id=${wish.id})}" class="btn">Rediger ønske</a>
     </div>
