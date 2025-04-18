@@ -31,9 +31,10 @@
 </div>
 <div class="buttons" th:if="${user.id != null}" th:data-id="${user.id}">
     <a th:href="@{/getCreateWishList(user_id=${user.id})}" class="btn_back">Lav ny ønskeliste</a>
+    <a th:href="@{/userPage}" class="btn_friends">Se venner</a>
 </div>
 
-<a th:href="@{/userPage}">Se venner!</a>
+
 <form th:action="@{/showWishbyWishList_id}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
     <input type="number" name="id" id="wishIdInput" required>
 </form>

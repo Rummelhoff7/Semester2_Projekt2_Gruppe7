@@ -68,13 +68,15 @@
 
 
 
-<h1>Gaveidéer:</h1>
+<h1 class="main-title">Gaveidéer fra dine venner</h1>
 <div class="container">
     <div class="square_none_hoover" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">
         <div>
-            <h4 th:text="${wishidea.title}">title</h4>
+            <label>Navn:</label>
+            <span th:text="${wishidea.title}">title</span>
         </div>
         <div>
+            <label>Beskrivelse:</label>
             <span th:text="${wishidea.description}">description</span>
         </div>
     </div>
