@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MainPage</title>
+    <title>updateWish</title>
     <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{baggrund.css}">
 </head>
@@ -42,10 +42,18 @@
             <input type="number" id="price" th:field="*{price}" required />
 
             <button type="submit">Opdater ønske</button>
-            <a th:href="@{/wishPage}" class="btn">Tilbage til ønskeliste</a>
+
+
         </form>
+        <form th:action="@{/deleteWish}" method="post" class="modify-form">
+            <input type="hidden" name="WishList_id" th:value="${wish.wishlist_id}" />
+            <input type="hidden" name="wishId" th:value="${wish.id}" />
+            <button type="submit" class="btn">Slet ønske</button>
+        </form>
+
     </div>
 </div>
+<a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn_back">Tilbage til ønsker</a>
 
 <div class="footer">
     <p>Kontakt os!</p>

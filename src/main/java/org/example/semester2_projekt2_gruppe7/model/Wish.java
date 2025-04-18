@@ -16,6 +16,14 @@ public class Wish {
         this.price = price;
     }
 
+    public Wish(int wistlist_id, String name, String description, String img, double price) {
+        this.wishlist_id = wistlist_id;
+        this.name = name;
+        this.description = description;
+        this.img = img;
+        this.price = price;
+    }
+
 
 
 
@@ -32,6 +40,11 @@ public class Wish {
 
     public Wish() {}
 
+    public Wish(String name, int wishlist_id) {
+        this.name = name;
+        this.wishlist_id = wishlist_id;
+
+    }
 
     public Wish(String name, String description, String img) {
         this.name = name;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MainPage</title>
+  <title>friendsWishPage</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
@@ -28,10 +28,10 @@
        th:data-id="${wishlist.id}">
     <img th:src="@{'/img/'+${wish.img}}" alt="Wish image"/>
     <div>
-      <h4 th:text="${wish.name}">Name</h4>
+      <h4 th:text="${wish.name}">Navn</h4>
     </div>
     <div>
-      <span th:text="${wish.description}">Description</span>
+      <span th:text="${wish.description}">Beskrivelse</span>
     </div>
   </div>
 </div>
@@ -55,7 +55,7 @@
     });
   });
 </script>
-<h1>Gave ideer:</h1>
+<h4>Ønske ideer</h4>
 <div class="container">
   <div class="square" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">
     <div>
@@ -70,7 +70,7 @@
 
 
 <div class="buttons">
-  <a th:href="@{/}" class="btn">Back</a>
+  <a th:href="@{/}" class="btn">Tilbage</a>
 </div>
 
 

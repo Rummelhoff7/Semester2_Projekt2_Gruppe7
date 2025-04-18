@@ -62,11 +62,13 @@ public class WishideaController {
 
     @PostMapping("/saveUpdateWishidea")
     public String postUpdateWishidea(@RequestParam("id") int id,
+                                     @RequestParam("wishlist_id") int wishlist_id,
                                      @RequestParam("title") String title,
-                                     @RequestParam("description") String description,
-                                     @RequestParam("wishlist_id") int wishlist_id) {
+                                     @RequestParam("description") String description
+                                     ) {
 
         // Process the request (e.g., save or update the wish idea)
+        System.out.println("POST - id: " + id + ", title: " + title + ", description: " + description + ", wishlist_id: " + wishlist_id);
         Wishidea wishidea = new Wishidea(id, title, description);
         wishideaRepository.update(wishidea);
 

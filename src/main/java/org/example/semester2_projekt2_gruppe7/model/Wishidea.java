@@ -13,8 +13,16 @@ public class Wishidea {
         this.description = description;
     }
 
-    public Wishidea(int wishlist_id, String title, String description) {
-        this.wishlist_id = wishlist_id;
+    /*
+    public Wishidea(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+    */
+
+    public Wishidea(int wishlistId, String title, String description) {
+        this.wishlist_id = wishlistId;
         this.title = title;
         this.description = description;
     }

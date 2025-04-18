@@ -57,11 +57,26 @@ public class WishListRepository {
     }
 
     public void delete(int id) {
-        String sql = "DELETE FROM wishList WHERE id = ?";
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
+        String deleteWishesSql = "DELETE FROM wish WHERE wishlist_id = ?";
+        String deleteWishlistSql = "DELETE FROM wishlist WHERE id = ?";
+
+        try (Connection connection = dataSource.getConnection()) {
+            connection.setAutoCommit(false);
+
+            try (PreparedStatement wishStmt = connection.prepareStatement(deleteWishesSql);
+                 PreparedStatement wishlistStmt = connection.prepareStatement(deleteWishlistSql)) {
+
+                wishStmt.setInt(1, id);
+                wishStmt.executeUpdate();
+
+                wishlistStmt.setInt(1, id);
+                wishlistStmt.executeUpdate();
+
+                connection.commit();
+            } catch (SQLException e) {
+                connection.rollback();
+                e.printStackTrace();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

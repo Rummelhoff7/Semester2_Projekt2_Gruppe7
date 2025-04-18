@@ -34,9 +34,14 @@ public class WishListController {
         return "wishlist";
     }
 
+    @GetMapping("/createWishList")
+    public String showCreateWishPage() {
+        return "createWishList"; // Thymeleaf template name (createWish.html)
+    }
+
     @GetMapping("/getCreateWishList")
-    public String createWishList() {
-        return "createWishList";
+    public String createWishList(@RequestParam("user_id")int user_id) {
+        return "redirect:/createWishList?user_id=" + user_id;
     }
 
 
@@ -47,11 +52,9 @@ public class WishListController {
             @RequestParam("img") String img)
     {
 
-       //String img = Service.getImg();
-
         WishList wishList = new WishList(user_id, name, img);
         wishListRepo.save(wishList);
-        return "redirect:/wishlist";
+        return "redirect:/wishlist?user_ID=" + user_id;
     }
 
 
@@ -73,15 +76,8 @@ public class WishListController {
       //  String img = WishlistService.getImg(brand, colour);
        WishList wishList = new WishList(id, user_id, name, img);
         wishListRepo.update(wishList);
-        return "redirect:/wishlist";
+        return "redirect:/wishlist?user_ID=" + user_id;
 
-    }
-    @GetMapping("/showWishList")
-    public String showWishList(@RequestParam("id") int id, Model model) {
-        WishList wishlist = wishListRepo.getWishListById(id);
-        model.addAttribute(wishlist);
-
-        return "showWishList";
     }
 
     @GetMapping("/showFriends_WishListbyUser_id")
@@ -98,11 +94,16 @@ public class WishListController {
     }
 
     @PostMapping("/deleteWishList")
-    public String deleteWishList(@RequestParam("id") int id) {
+    public String deleteWishList(@RequestParam("id") int id,
+                                 @RequestParam("user_id") int user_id) {
+
+        System.out.println("deleteWishList");
+        System.out.println("user_id: " + user_id);
+        System.out.println("id: " + id);
 
         wishListRepo.delete(id);
 
-        return "redirect:/wishlist";
+        return "redirect:/wishlist?user_ID=" + user_id;
     }
 
 }

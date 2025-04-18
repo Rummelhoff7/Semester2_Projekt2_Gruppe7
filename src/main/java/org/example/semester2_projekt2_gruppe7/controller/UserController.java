@@ -36,7 +36,7 @@ public class UserController {
             model.addAttribute("error", "Brugernavn findes allerede, skriv venligst en nyt brugernavn.");
             return "createUser";
         }
-        return "redirect:/wishlist";
+        return "redirect:/wishlist?user_ID=" + user.getId();
     }
 
     @GetMapping("/getUpdateUser")

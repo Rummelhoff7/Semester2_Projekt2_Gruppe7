@@ -54,11 +54,11 @@ public class WishRepository {
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     wish.setId(resultSet.getInt("id"));
+                    wish.setWishlist_id(resultSet.getInt("wishlist_id"));
                     wish.setName(resultSet.getString("name"));
                     wish.setDescription(resultSet.getString("description"));
                     wish.setImg(resultSet.getString("img"));
                     wish.setPrice(resultSet.getDouble("price"));
-                    //wishes.add(wish);
                 }
             }
         }catch (SQLException e){

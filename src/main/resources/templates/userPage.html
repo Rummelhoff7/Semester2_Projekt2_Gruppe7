@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MainPage</title>
+  <title>userPage</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
@@ -29,7 +29,7 @@
 <div class="container">
   <div class="square" th:each="user : ${userList}" th:data-id="${user.id}">
     <div>
-      <label>Name:</label>
+      <label>Navn:</label>
       <span th:text="${user.name}">Name</span>
     </div>
   </div>
@@ -53,10 +53,5 @@
   });
 </script>
 
-<div class="wish_holder">
-  <a th:href="@{/friendsWishList}">
-    <button type="submit" class="wish_btn">Se venners ønsker</button>
-  </a>
-</div>
 </body>
 </html>

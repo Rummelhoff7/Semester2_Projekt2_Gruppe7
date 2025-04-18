@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MainPage</title>
+  <title>createUser</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
@@ -24,15 +24,15 @@
 
 <div class="container">
   <div class="form-container">
-    <h2>Create a User</h2>
+    <h2>Opret ny bruger</h2>
     <form th:action="@{/createUser}" method="post">
-      <label for="name">Username:</label>
+      <label for="name">Bruger navn:</label>
       <input type="text" id="name" name="name" placeholder="Please enter user name" required>
 
-      <label for="password">Password:</label>
+      <label for="password">Kode:</label>
       <input type="password" id="password" name="password" placeholder="Please enter password" required>
 
-      <button type="submit">Create user</button>
+      <button type="submit">Lav bruger</button>
     </form>
   </div>
 </div>

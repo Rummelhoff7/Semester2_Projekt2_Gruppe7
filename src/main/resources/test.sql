@@ -61,11 +61,21 @@ INSERT INTO wish(wishlist_id, name, description,price, img) VALUES
     (3,'Bog','Så man kan se klog ud',150.00, 'bog.jpg'),
     (4,'Diamant','I har da pengene til sådan en ikke?',10000.00, 'diamant.jpg'),
     (5,'Ferie','Jeg trænger til det',11500.00, 'ferie.webp'),
-    (1,'Ferrari','WROOM WROOM',1000000, 'ferrari.jpg'),
-    (2,'Hund','Den har fire poter på hvert sit ben',700, 'hund.jpg'),
+    (6,'Ferrari','WROOM WROOM',1000000, 'ferrari.jpg'),
+    (7,'Hund','Den har fire poter på hvert sit ben',700, 'hund.jpg'),
+    (8,'Kjole','Den skal være blod rød',1000.00, 'kjole.jpg'),
+    (9,'Maleri','Hvad som helst er fint',1000000000.00, 'maleri.jpg'),
+    (10,'Løbe kursus','Har du set hvor fed jeg er!?',1150.00, 'løbekursus.jpg'),
+    (10,'Landskamps-billetter','En tur i Parken og se landsholdet spille for 2 personer',1150.00, 'landsholdet.jpg'),
+    (9,'Badebold','Flot og rund',50, 'badebold.jpg'),
+    (8,'Bog','Så man kan se klog ud',150.00, 'bog.jpg'),
+    (7,'Diamant','I har da pengene til sådan en ikke?',10000.00, 'diamant.jpg'),
+    (6,'Ferie','Jeg trænger til det',11500.00, 'ferie.webp'),
+    (5,'Ferrari','WROOM WROOM',1000000, 'ferrari.jpg'),
+    (4,'Hund','Den har fire poter på hvert sit ben',700, 'hund.jpg'),
     (3,'Kjole','Den skal være blod rød',1000.00, 'kjole.jpg'),
-    (4,'Maleri','Hvad som helst er fint',1000000000.00, 'maleri.jpg'),
-    (5,'Løbe kursus','Har du set hvor fed jeg er!?',1150.00, 'løbekursus.jpg')
+    (2,'Maleri','Hvad som helst er fint',1000000000.00, 'maleri.jpg'),
+    (1,'Løbe kursus','Har du set hvor fed jeg er!?',1150.00, 'løbekursus.jpg')
 ;
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MainPage</title>
+    <title>wishPage</title>
     <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{baggrund.css}">
 </head>
@@ -20,34 +20,34 @@
 
 <h1 class="main-title">Her ser du dine gaveønsker</h1>
 <div class ="container">
-    <div class ="square" th:each="wish:${wishes}" th:data-id="${wish.id}">
-        <img th:src="@{'/img/'+${wish.img}}"alt="Wish image"/>
+    <div class="square" th:each="wish : ${wishes}" th:data-id="${wish.id}">
+        <img th:src="@{'/img/' + ${wish.img}}" alt="Wish image"/>
         <div>
-            <label>Navn:</label>
             <span th:text="${wish.name}">Name</span>
         </div>
         <div>
-            <label>Beskrivelse:</label>
             <span th:text="${wish.description}">Description</span>
         </div>
         <div>
             <label>Pris:</label>
-            <span th:text="${wish.price}+ DKK">Price</span>
-        </div>
-        <div>
-            <label>Gave ID:</label>
-            <span th:text="${wish.id}">ID</span>
-        </div>
-        <div>
-            <label>Gaveliste ID:</label>
-            <span th:text="${wish.wishlist_id}">User ID</span>
+            <span th:text="${wish.price + ' DKK'}">Price</span>
         </div>
 
     </div>
+
 </div>
 <form th:action="@{/showWish}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
     <input type="number" name="id" id="wishIdInput" required>
 </form>
+
+<div th:if="${not #lists.isEmpty(wishes)}"
+     th:with="wish=${wishes[0]}">
+
+    <div class="buttons" th:data-id="${wish.wishlist_id}">
+        <a th:href="@{/getCreateWish(WishList_id=${wish.wishlist_id})}" class="btn">Opret ønske</a>
+    </div>
+</div>
+
 <script>
     // Attach click event listener to all square div elements
     document.querySelectorAll('.square').forEach(function(square) {
@@ -63,22 +63,25 @@
         });
     });
 </script>
-<div class="buttons">
-    <a th:href="@{/getCreateWish}" class="btn">Opret ønske</a>
-    <div class="modify-forms">
-        <form th:action="@{showWish}" method="get" class="=modify-form">
-            <input type="number" name="id" placeholder="Enter Wish ID to read" required>
-            <button type="submit" class="btn">Se ønske</button>
-        </form>
 
-        <form th:action="@{/deleteWish}" method="post" class="modify-form">
-            <input type="number" name="id" placeholder="Enter Wish ID to delete" required>
-            <button type="submit" class="btn">Slet ønske</button>
-        </form>
+
+
+<h1>Gave ideer:</h1>
+<div class="container">
+    <div class="square_none_hoover" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">
+        <div>
+            <h4 th:text="${wishidea.title}">title</h4>
+        </div>
+        <div>
+            <span th:text="${wishidea.description}">description</span>
+        </div>
     </div>
 </div>
+<div th:if="${not #lists.isEmpty(wishes)}"
+     th:with="wish=${wishes[0]}">
 
-
+<a th:href="@{/login}" class="btn_back">Tilbage til login</a>
+</div>
 <div class="footer">
     <p>Kontakt os!</p>
     <p>Gavelisten@stud.kea.dk</p>

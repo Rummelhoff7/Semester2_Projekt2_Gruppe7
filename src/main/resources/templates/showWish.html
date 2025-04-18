@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MainPage</title>
+  <title>showWish</title>
   <link rel="stylesheet" th:href="@{style.css}">
   <link rel="stylesheet" th:href="@{baggrund.css}">
 </head>
@@ -19,35 +19,27 @@
 </div>
 
 <div class="container">
-  <div class="square">
+  <div class="square_none_hoover">
     <img th:src="@{'/img/'+${wish.img}}" alt="Wish image"/>
     <div>
-      <label>ID:</label>
-      <span th:text="${wish.id}">ID</span>
-    </div>
-    <div>
-      <label>User ID:</label>
-      <span th:text="${wish.wishlist_id}">User ID</span>
-    </div>
-    <div>
-      <label>Name:</label>
+      <label>Navn:</label>
       <span th:text="${wish.name}">Name</span>
     </div>
     <div>
-      <label>Description:</label>
+      <label>Beskrivelse:</label>
       <span th:text="${wish.description}">Description</span>
     </div>
     <div>
-      <label>Img:</label>
+      <label>Billede:</label>
       <span th:text="${wish.img}">Img</span>
+    </div>
+    <div class="buttons">
+      <a th:href="@{/getUpdateWish(id=${wish.id})}" class="btn">Rediger ønske</a>
     </div>
   </div>
 </div>
 
-<div class="buttons">
-  <a th:href="@{/wishPage}" class="btn">Back</a>
-  <a th:href="@{/getUpdateWish(id=${wish.id})}" class="wish_btn">Rediger ønske</a>
-</div>
+<a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn_back">Tilbage til ønsker</a>
 
 <div class="footer">
   <p>Kontakt os!</p>

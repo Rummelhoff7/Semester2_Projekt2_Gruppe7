@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MainPage</title>
+    <title>createwishidea</title>
     <link rel="stylesheet" th:href="@{style.css}">
 </head>
 <body>
@@ -20,10 +20,10 @@
 
 <div class="container">
     <div class="form-container">
-        <h2>Create Wish Idea</h2>
+        <h2>Opret ny ønske ide</h2>
         <form th:action="@{/saveCreateWishidea}" method="post">
-            <input type="hidden" name="wishlist_id" th:value="${wishlist_id}" />
-            <label for="title">Title</label>
+            <input type="hidden" name="wishlist_id" th:value="${param.wishlist_id}" />
+            <label for="title">Titel</label>
             <input id="title" name="title" type="text">
 
             <label for="description">Beskrivelse</label>

@@ -114,12 +114,31 @@ public class UserRepository {
       String sql = "INSERT INTO user (name, password) VALUES (?,?)";
 
       try (Connection connection = dataSource.getConnection();
-           PreparedStatement statement = connection.prepareStatement(sql)) {
+           PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
           statement.setString(1, user.getName());
           statement.setString(2, user.getPassword());
 
-          statement.executeUpdate();
+
+
+
+          // Her har jeg gjort man får id fra den nye User man har lavet ind i klassen så den bliver referatet til når man linker til wishlist.html
+          int rowsAffected = statement.executeUpdate();
+          if (rowsAffected == 0) {
+              return false;
+          }
+
+          try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+              if (generatedKeys.next()) {
+                  int generatedId = generatedKeys.getInt(1);
+                  user.setId(generatedId);
+              }
+          }
+
+
+
+
+
           return true;
 
           //Denne exception hjælper med at håndtere sql, når et username allerede findes.

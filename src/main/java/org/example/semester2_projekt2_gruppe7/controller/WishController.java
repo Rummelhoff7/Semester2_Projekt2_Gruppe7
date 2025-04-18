@@ -1,6 +1,7 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
 
+import org.example.semester2_projekt2_gruppe7.model.User;
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.WishList;
 import org.example.semester2_projekt2_gruppe7.model.Wishidea;
@@ -23,8 +24,6 @@ public class WishController {
 
     @Autowired
     WishRepository wishRepo;
-
-
     @Autowired
     WishListRepository wishListRepo;
     @Autowired
@@ -34,10 +33,12 @@ public class WishController {
 
 
     @GetMapping("/wishPage")
-    public String userPage(Model model) {
-        ArrayList<Wish> wishes = wishRepo.getAllWish();
+    public String wishPage(@RequestParam("WishList_id") int id, Model model) {
+        ArrayList<Wish> wishes = wishRepo.getWishByWistList_id(id);
         model.addAttribute("wishes", wishes);
-        return "wishPage";  // This corresponds to userPage.html
+        ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
+        model.addAttribute("wishidealist", wishidealist);
+        return "wishPage";
     }
 
     @GetMapping("/friendWishPage")
@@ -47,14 +48,19 @@ public class WishController {
         return "friendWishPage";  // This corresponds to userPage.html
     }
 
-    @GetMapping("/getCreateWish")
-    public String createWish(){
-        return "createWish";
+    @GetMapping("/createWish")
+    public String showCreateWishPage() {
+        return "createWish"; // Thymeleaf template name (createWish.html)
+    }
 
-        // user_id skal ændres
+    @GetMapping("/getCreateWish")
+    public String createWish(@RequestParam("WishList_id") int wishListId){
+
+        return "redirect:/createWish?WishList_id=" + wishListId;
+
     }
     @PostMapping("/saveCreateWish")
-    public String postCreateWish(
+    public String postCreateWish(@RequestParam("WishList_id") int wishlist_id,
                                  @RequestParam("name") String name,
                                  @RequestParam("description") String description,
                                  @RequestParam("price")double price) {
@@ -62,10 +68,10 @@ public class WishController {
 
         String img = wishService.getImage(name, description);
 
-        Wish wish = new Wish(name, description, img, price);
+        Wish wish = new Wish(wishlist_id, name, description, img, price);
 
         wishRepo.save(wish);
-        return "redirect:/wishPage";
+        return "redirect:/wishPage?WishList_id=" + wishlist_id;
     }
 
     // OBS Skal kigges på
@@ -91,7 +97,7 @@ public class WishController {
         }
         Wish wish = new Wish(id, wishlist_id, name, description, img, price);
         wishRepo.update(wish);
-        return "redirect:/wishPage";
+        return "redirect:/wishPage?WishList_id=" + wishlist_id;
     }
 
     @GetMapping("/showWish")
@@ -109,13 +115,14 @@ public class WishController {
         WishList wishlist = wishListRepo.getWishListById(id);
         model.addAttribute("wishlist", wishlist);
 
-        ArrayList<Wish> wishList = wishRepo.getWishByWistList_id(id);
-        model.addAttribute("wishList", wishList);
+        ArrayList<Wish> wishes = wishRepo.getWishByWistList_id(id);
+        model.addAttribute("wishes", wishes);
 
         ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
         model.addAttribute("wishidealist", wishidealist);
+        System.out.println(wishidealist);
 
-        return "showWishbyWishList_id";
+        return "redirect:/wishPage?WishList_id="+id;
 
     }
 
@@ -136,11 +143,12 @@ public class WishController {
     }
 
     @PostMapping("/deleteWish")
-    public String deleteWish(@RequestParam("id") int id){
+    public String deleteWish(@RequestParam("wishId") int wishId,
+                             @RequestParam("WishList_id") int wishListId) {
 
-        wishRepo.deleteWish(id);
+        wishRepo.deleteWish(wishId);
 
-        return "redirect:/wishPage";
+        return "redirect:/wishPage?WishList_id=" + wishListId;
     }
 
 
