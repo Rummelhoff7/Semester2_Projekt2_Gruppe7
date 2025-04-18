@@ -19,13 +19,13 @@
     <a th:href="@{/}">
       <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
     </a>
-    <h1>Gave listen</h1>
+    <h1>Gavelisten</h1>
   </div>
 </div>
 
 
 <h1> Velkommen til dine venners ønsker!</h1>
-<p1> Her kan du se alle dine venners ønskelister.</p1>
+<p1> Her kan du se dine venners ønskelister.</p1>
 <div class="container">
   <div class="square" th:each="user : ${userList}" th:data-id="${user.id}">
     <div>

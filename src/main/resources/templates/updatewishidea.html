@@ -13,14 +13,14 @@
     <a th:href="@{/}">
       <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
     </a>
-    <h1>Gave listen</h1>
+    <h1>Gavelisten</h1>
   </div>
 </div>
 
 
 <div class="container">
   <div class="form-container">
-    <h2>Ændre Ønske ide</h2>
+    <h2>Opdater gaveidé</h2>
     <form th:action="@{/saveUpdateWishidea}" method="post">
       <input type="hidden" name="id" th:value="${wishidea.id}" />
       <input type="hidden" name="wishlist_id" th:value="${wishidea.wishlist_id}" />
@@ -31,7 +31,7 @@
       <label for="description">Beskrivelse</label>
       <input id="description" name="description" type="text" th:value="${wishidea.description}" required>
 
-      <button type="submit">Ændre dine ønske ide</button>
+      <button type="submit">Opdater din ønskeidé</button>
     </form>
       <form th:action="@{/deleteWishidea}" method="post" class="modify-form">
         <input type="hidden" name="id" th:value="${wishidea.id}" />

@@ -14,14 +14,14 @@
     <a th:href="@{/}">
       <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
     </a>
-    <h1>Gave listen</h1>
+    <h1>Gavelisten</h1>
   </div>
 </div>
 
 
 <div class="container">
   <div class="form-container">
-    <h2>Updater ønske liste</h2>
+    <h2>Opdater ønskeliste</h2>
     <form th:action="@{/saveUpdateWishList}" method="post">
       <input type="hidden" name="id" th:value="${wishList.id}" />
       <input type="hidden" name="user_id" th:value="${wishList.user_id}" />
@@ -32,12 +32,12 @@
       <input type="text" id="img" name="img" placeholder="Enter img" th:value="${wishList.img}" required>
 
 
-      <button type="submit">Updater ønskeliste</button>
+      <button type="submit">Opdater ønskeliste</button>
     </form>
     <form th:action="@{/deleteWishList}" method="post" class="modify-form">
       <input type="hidden" name="id" th:value="${wishList.id}" />
       <input type="hidden" name="user_id" th:value="${wishList.user_id}" />
-      <button type="submit" class="btn">Slet ønske</button>
+      <button type="submit" class="btn">Slet ønskeliste</button>
     </form>
   </div>
 </div>

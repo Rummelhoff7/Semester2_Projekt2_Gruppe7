@@ -13,7 +13,7 @@
         <a th:href="@{/}">
             <img th:src="@{'/img/Home_icon.JPG'}" id="icon" alt="Home Icon">
         </a>
-        <h1>Gave listen</h1>
+        <h1>Gavelisten</h1>
     </div>
 </div>
 <div class="container">
@@ -23,12 +23,12 @@
             <span th:text="${wishlist.name}">name</span>
         </div>
         <div class="buttons">
-            <a th:href="@{/getUpdateWishList(id=${wishlist.id})}" class="btn">Rediger ønske liste</a>
+            <a th:href="@{/getUpdateWishList(id=${wishlist.id})}" class="btn">Rediger ønskeliste</a>
         </div>
 </div>
 </div>
 <div class="buttons" th:if="${user.id != null}" th:data-id="${user.id}">
-    <a th:href="@{/getCreateWishList(user_id=${user.id})}" class="btn_back">Lave ny ønskeliste</a>
+    <a th:href="@{/getCreateWishList(user_id=${user.id})}" class="btn_back">Lav ny ønskeliste</a>
 </div>
 
 <a th:href="@{/userPage}">Se venner!</a>

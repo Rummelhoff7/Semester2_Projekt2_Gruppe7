@@ -35,11 +35,11 @@ INSERT INTO wishList(user_id, name, img) VALUES
     (1, 'Gavertilmig', 'pikachu.jpg'),
     (2, 'Juleønsker', 'solbriller.jpg'),
     (3, 'Rejseønsker', 'sommerhus.jpg'),
-    (4, 'Fylveøsnker', 'tivolitur.jpg'),
+    (4, 'Flyveønsker', 'tivolitur.jpg'),
     (5, 'Katteønsker', 'ur.jpg'),
     (1, 'Hundeønsker', 'badebold.jpg'),
     (2, 'Frihedsønsker', 'bog.jpg'),
-    (3, 'Fødselsdagønsker', 'chelsea.jpg'),
+    (3, 'Fødselsdagsønsker', 'chelsea.jpg'),
     (4, 'Danseønsker', 'diamant.jpg'),
     (5, 'Pjatteønsker', 'ferie.webp')
 ;
