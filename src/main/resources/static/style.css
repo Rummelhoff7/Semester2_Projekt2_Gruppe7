@@ -300,3 +300,99 @@ img {
 .button-row a {
     text-decoration: none;
 }
+
+.extended-container {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn-back {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+.back-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    margin: 30px 0;
+}
+
+.btn-back {
+    background-color: #007bff; /* Samme blå farve */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+/* Styling kun for userPage */
+.userpage .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.userpage .square {
+    background: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 250px;
+    height: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.userpage .square:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.userpage .square span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1E90FF;
+}
+
+.userpage .square label {
+    display: none;
+}

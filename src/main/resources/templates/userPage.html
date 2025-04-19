@@ -1,9 +1,3 @@
-<!-- Skal sendes til opret ønskeliste -->
-<!-- Skal sendes til ønskeliste-->
-<!-- Skal sendes til se venner -->
-<!-- Kommer fra login  -->
-<!-- Kommer fra createUser-->
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -12,7 +6,7 @@
   <title>userPage</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
-<body>
+<body class="userpage"> <!-- Tilføjet klasse -->
 
 <div class="header">
   <div class="header-text">
@@ -23,31 +17,25 @@
   </div>
 </div>
 
+<h1 class="main-title">Klik på en ven for at se vedkommendes ønskelister</h1>
 
-<h1> Velkommen til dine venners ønsker!</h1>
-<p1> Her kan du se dine venners ønskelister.</p1>
 <div class="container">
   <div class="square" th:each="user : ${userList}" th:data-id="${user.id}">
     <div>
-      <label>Navn:</label>
       <span th:text="${user.name}">Name</span>
     </div>
   </div>
 </div>
+
 <form th:action="@{/showFriends_WishListbyUser_id}" method="get" class="modify-form" id="wishUpdateForm" style="display:none;">
   <input type="number" name="id" id="wishIdInput" required>
 </form>
+
 <script>
-  // Attach click event listener to all square div elements
   document.querySelectorAll('.square').forEach(function(square) {
     square.addEventListener('click', function() {
-      // Get the wish idea ID stored in the data-id attribute of the clicked square
       var wishId = this.getAttribute('data-id');
-
-      // Set the value of the hidden input field in the form
       document.getElementById('wishIdInput').value = wishId;
-
-      // Submit the form to trigger the backend action
       document.getElementById('wishUpdateForm').submit();
     });
   });

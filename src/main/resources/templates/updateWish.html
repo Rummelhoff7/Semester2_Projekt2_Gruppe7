@@ -18,8 +18,6 @@
     </div>
 </div>
 
-
-
 <div class="container">
     <div class="form-container">
         <h2>Rediger dit ønske</h2>
@@ -27,7 +25,6 @@
         <form th:action="@{/saveUpdateWish}" th:object="${wish}" method="post">
 
             <input type="hidden" th:field="*{id}" />
-
             <input type="hidden" th:name="wishlist_id" th:value="${wish.wishlist_id}" />
 
             <label for="name">Navn</label>
@@ -42,23 +39,24 @@
             <input type="number" id="price" th:field="*{price}" required />
 
             <button type="submit">Opdater ønske</button>
-
-
         </form>
+
         <form th:action="@{/deleteWish}" method="post" class="modify-form">
             <input type="hidden" name="WishList_id" th:value="${wish.wishlist_id}" />
             <input type="hidden" name="wishId" th:value="${wish.id}" />
             <button type="submit" class="btn">Slet ønske</button>
         </form>
+    </div>
 
+    <div class="back-btn-container">
+        <a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn btn-back">Tilbage</a>
     </div>
 </div>
-<a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn_back">Tilbage til ønsker</a>
 
 <div class="footer">
     <p>Kontakt os!</p>
     <p>Gavelisten@stud.kea.dk</p>
-
 </div>
+
 </body>
 </html>

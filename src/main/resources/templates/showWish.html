@@ -19,7 +19,7 @@
 </div>
 
 <div class="container">
-  <div class="square_none_hoover">
+  <div class="square_none_hoover extended-container">
     <img th:src="@{'/img/'+${wish.img}}" alt="Wish image"/>
     <div>
       <label>Navn:</label>
@@ -35,22 +35,24 @@
     </div>
     <div>
       <label>Pris:</label>
-      <span th:text="${wish.price}">Img</span>
+      <span th:text="${wish.price}">Price</span>
     </div>
-    <div class="buttons">
+
+    <div class="button-wrapper">
       <a th:href="@{/getUpdateWish(id=${wish.id})}" class="btn">Rediger ønske</a>
     </div>
   </div>
-</div>
 
-<a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn_back">Tilbage til ønsker</a>
+  <!-- Tilbage-knappen placeret korrekt -->
+  <div class="back-btn-container">
+    <a th:href="@{/wishPage(WishList_id=${wish.wishlist_id})}" class="btn btn-back">Tilbage</a>
+  </div>
+</div>
 
 <div class="footer">
   <p>Kontakt os!</p>
   <p>Gavelisten@stud.kea.dk</p>
-
 </div>
+
 </body>
 </html>
-
-
