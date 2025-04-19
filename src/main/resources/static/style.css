@@ -370,17 +370,20 @@ img {
 .userpage .square {
     background: #ffffff;
     border: 2px solid #ccc;
-    border-radius: 10px;
-    padding: 15px 25px;
-    width: 250px;
-    height: 100px;
+    border-radius: 50%; /* Gør den helt rund */
+    width: 150px;       /* Fast bredde */
+    height: 150px;      /* Samme højde for at få en cirkel */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
+    padding: 0;         /* Fjern padding så indholdet er præcist centreret */
+    text-align: center; /* Sørg for tekst centreres horisontalt */
 }
+
+
 
 .userpage .square:hover {
     transform: scale(1.05);
@@ -395,4 +398,10 @@ img {
 
 .userpage .square label {
     display: none;
+}
+.userpage .main-title {
+    margin-left: 40px;
+    color: #1E90FF;
+    font-size: 2em;
+    font-weight: bold;
 }

@@ -38,12 +38,15 @@ public class WishController {
                            HttpServletRequest request,
                            Model model) {
         String referer = request.getHeader("Referer");
-        model.addAttribute("refererUrl", referer);  // Gemmer den oprindelige URL
+        model.addAttribute("refererUrl", referer);
 
         ArrayList<Wish> wishes = wishRepo.getWishByWistList_id(id);
         model.addAttribute("wishes", wishes);
+
         ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
         model.addAttribute("wishidealist", wishidealist);
+
+        model.addAttribute("wishlist_id", id);
 
         return "wishPage";
     }

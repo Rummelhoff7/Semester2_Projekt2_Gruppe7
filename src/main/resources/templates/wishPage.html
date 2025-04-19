@@ -42,12 +42,8 @@
     <input type="number" name="id" id="wishIdInput" required>
 </form>
 
-<div th:if="${not #lists.isEmpty(wishes)}"
-     th:with="wish=${wishes[0]}">
-
-    <div class="buttons" th:data-id="${wish.wishlist_id}">
-        <a th:href="@{/getCreateWish(WishList_id=${wish.wishlist_id})}" class="btn">Opret ønske</a>
-    </div>
+<div class="buttons" th:if="${wishlist_id}">
+    <a th:href="@{/getCreateWish(WishList_id=${wishlist_id})}" class="btn">Opret Ønske</a>
 </div>
 
 <script>
