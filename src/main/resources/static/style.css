@@ -209,6 +209,7 @@ img {
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
+    font-size:5em;
 }
 .login_holder{
     display: table;

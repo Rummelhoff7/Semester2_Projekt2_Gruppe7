@@ -2,11 +2,10 @@ body {
     background-color: #aee7f8;
 }
 
-
 .main-title {
-    text-align: center;
-    color: #4CAF50;
-    font-size: 4.0em;
-    margin-top: 30px;
+    font-size: 2em;
+    color: #1E90FF;
+    margin-left: 80px;
+    margin-top: 20px;
     font-weight: bold;
 }
