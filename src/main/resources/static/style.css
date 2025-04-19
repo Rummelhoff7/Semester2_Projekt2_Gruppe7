@@ -255,3 +255,11 @@ img {
 .btn_friends:hover {
     background-color: #1976D2; /* mørkere blå ved hover */
 }
+.wishlist-name {
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    color: #1E90FF; !important;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}

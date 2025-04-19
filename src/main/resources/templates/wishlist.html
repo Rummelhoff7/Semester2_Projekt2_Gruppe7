@@ -22,7 +22,7 @@
     <div class="square" th:each="wishlist:${wishListing}" th:data-id="${wishlist.id}">
         <img th:src="@{'/img/'+${wishlist.img}}"alt="Wish image"/>
         <div>
-            <span th:text="${wishlist.name}">name</span>
+            <span class="wishlist-name" th:text="${wishlist.name}">name</span>
         </div>
         <div class="buttons">
             <a th:href="@{/getUpdateWishList(id=${wishlist.id})}" class="btn">Rediger ønskeliste</a>
