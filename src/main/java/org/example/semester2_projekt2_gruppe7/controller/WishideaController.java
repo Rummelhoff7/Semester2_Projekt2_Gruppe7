@@ -39,7 +39,9 @@ public class WishideaController {
     @PostMapping("/saveCreateWishidea")
     public String postCreateWishidea(@RequestParam ("wishlist_id")int wishlist_id,
                                      @RequestParam ("title") String title,
-                                     @RequestParam ("description") String description) {
+                                     @RequestParam ("description") String description,
+                                     @RequestParam("price")Double price)
+    {
 
         //Here you can add java code to example add img from Video 2 16min
         System.out.println("POST - wishlist_id: " + wishlist_id);

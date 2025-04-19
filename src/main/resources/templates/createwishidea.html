@@ -23,11 +23,15 @@
         <h2>Opret ny gaveidé</h2>
         <form th:action="@{/saveCreateWishidea}" method="post">
             <input type="hidden" name="wishlist_id" th:value="${param.wishlist_id}" />
+
             <label for="title">Titel</label>
-            <input id="title" name="title" type="text">
+            <input id="title" name="title" type="text" required>
 
             <label for="description">Beskrivelse</label>
-            <input id="description" name="description" type="text">
+            <input id="description" name="description" type="text" required>
+
+            <label for="price">Pris (DKK)</label>
+            <input id="price" name="price" type="number" step="0.01" min="0">
 
             <button type="submit">Lav gaveidé</button>
         </form>

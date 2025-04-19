@@ -1,5 +1,6 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.semester2_projekt2_gruppe7.model.User;
 import org.example.semester2_projekt2_gruppe7.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,11 +76,16 @@ public class UserController {
 
 
     @GetMapping("/userPage")
-    public String userPage(Model model) {
+    public String userPage(HttpServletRequest request, Model model) {
         ArrayList<User> userList = userRepository.getAllUsers();
         model.addAttribute("userList", userList);
-        return "userPage";  // This corresponds to userPage.html
+
+        String referer = request.getHeader("Referer");
+        model.addAttribute("refererUrl", referer);
+
+        return "userPage";
     }
+
 
     @GetMapping("/login")
     public String loginPage(Model model) {

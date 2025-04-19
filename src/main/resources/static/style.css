@@ -413,3 +413,50 @@ img {
     font-weight: bold;
 }
 
+
+.btn_friends {
+    background-color: dodgerblue; /* eller den ønskede farve */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn_friends:hover {
+    background-color: dodgerblue;
+}
+
+.back-btn-container {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+.create-wishidea-btn-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.create-wishidea-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #28a745; /* Grøn */
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-wishidea-btn:hover {
+    background-color: #218838; /* Mørkere grøn ved hover */
+    transform: scale(1.05);
+}
+
+
+

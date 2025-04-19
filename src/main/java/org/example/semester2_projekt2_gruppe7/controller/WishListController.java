@@ -35,9 +35,14 @@ public class WishListController {
     }
 
     @GetMapping("/createWishList")
-    public String showCreateWishPage() {
-        return "createWishList"; // Thymeleaf template name (createWish.html)
+    public String showCreateWishPage(@RequestParam("user_id") int userId,
+                                     @RequestParam(value = "referer", required = false) String referer,
+                                     Model model) {
+        model.addAttribute("refererUrl", referer);
+        model.addAttribute("user_id", userId);
+        return "createWishList";
     }
+
 
     @GetMapping("/getCreateWishList")
     public String createWishList(@RequestParam("user_id")int user_id) {

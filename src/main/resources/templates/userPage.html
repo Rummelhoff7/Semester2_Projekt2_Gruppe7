@@ -6,7 +6,7 @@
   <title>userPage</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
-<body class="userpage"> <!-- Tilføjet klasse -->
+<body class="userpage">
 
 <div class="header">
   <div class="header-text">
@@ -40,6 +40,18 @@
     });
   });
 </script>
+
+<!-- Tilføjet Tilbage-knap -->
+<div class="back-btn-container">
+  <a th:href="@{${refererUrl}}" style="text-decoration: none;">
+    <button class="btn_friends">Tilbage</button>
+  </a>
+</div>
+
+<div class="footer">
+  <p>Kontakt os!</p>
+  <p>Gavelisten@stud.kea.dk</p>
+</div>
 
 </body>
 </html>
