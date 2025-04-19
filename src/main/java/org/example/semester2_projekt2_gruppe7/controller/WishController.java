@@ -1,6 +1,7 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.semester2_projekt2_gruppe7.model.User;
 import org.example.semester2_projekt2_gruppe7.model.Wish;
 import org.example.semester2_projekt2_gruppe7.model.WishList;
@@ -33,13 +34,20 @@ public class WishController {
 
 
     @GetMapping("/wishPage")
-    public String wishPage(@RequestParam("WishList_id") int id, Model model) {
+    public String wishPage(@RequestParam("WishList_id") int id,
+                           HttpServletRequest request,
+                           Model model) {
+        String referer = request.getHeader("Referer");
+        model.addAttribute("refererUrl", referer);  // Gemmer den oprindelige URL
+
         ArrayList<Wish> wishes = wishRepo.getWishByWistList_id(id);
         model.addAttribute("wishes", wishes);
         ArrayList<Wishidea> wishidealist = wishideaRepo.getWishideaby_wishlist_id(id);
         model.addAttribute("wishidealist", wishidealist);
+
         return "wishPage";
     }
+
 
     @GetMapping("/friendWishPage")
     public String friendswishpage(Model model) {
