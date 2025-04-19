@@ -264,3 +264,38 @@ img {
     margin-top: 10px;
     text-align: center;
 }
+
+.login-container {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    width: 320px;
+    margin: 60px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.back-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-row .btn,
+.button-row .btn_back {
+    margin: 0;
+    width: auto;
+}
+
+.button-row a {
+    text-decoration: none;
+}
