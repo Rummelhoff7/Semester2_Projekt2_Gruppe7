@@ -49,7 +49,7 @@ public class WishideaController {
         Wishidea wishidea = new Wishidea(wishlist_id, title, description);
 
         wishideaRepository.save(wishidea);
-        return "redirect:/showwishidea?wishlist_id=" + wishlist_id;
+        return "redirect:/showFriendsWishbyWishList_id?id=" + wishlist_id;
 
     }
 
