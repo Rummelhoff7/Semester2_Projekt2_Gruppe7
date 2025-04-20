@@ -31,7 +31,6 @@ public class WishideaController {
     @GetMapping("/getcreatewishidea")
     public String CreateWishidea(@RequestParam("wishlist_id") int wishlistId, Model model) {
         model.addAttribute("wishlist_id", wishlistId);
-        System.out.println("GET - wishlist_id: " + wishlistId);// add it to the model
         return "createwishidea";
     }
 
@@ -41,8 +40,6 @@ public class WishideaController {
                                      @RequestParam ("description") String description)
     {
 
-        //Here you can add java code to example add img from Video 2 16min
-        System.out.println("POST - wishlist_id: " + wishlist_id);
 
         Wishidea wishidea = new Wishidea(wishlist_id, title, description);
 
@@ -59,8 +56,6 @@ public class WishideaController {
                                      @RequestParam("description") String description
                                      ) {
 
-        // Process the request (e.g., save or update the wish idea)
-        System.out.println("POST - id: " + id + ", title: " + title + ", description: " + description + ", wishlist_id: " + wishlist_id);
         Wishidea wishidea = new Wishidea(id, title, description);
         wishideaRepository.update(wishidea);
 
