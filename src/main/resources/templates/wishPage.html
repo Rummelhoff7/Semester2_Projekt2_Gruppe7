@@ -75,6 +75,11 @@
             <label>Beskrivelse:</label>
             <span th:text="${wishidea.description}">description</span>
         </div>
+        <form th:action="@{/deleteWishidea}" method="post" class="modify-form">
+            <input type="hidden" name="id" th:value="${wishidea.id}" />
+            <input type="hidden" name="wishlist_id" th:value="${wishidea.wishlist_id}" />
+            <button type="submit" class="btn">Slet</button>
+        </form>
     </div>
 </div>
 <div th:if="${not #lists.isEmpty(wishes)}"

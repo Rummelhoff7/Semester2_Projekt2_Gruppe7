@@ -39,8 +39,7 @@ public class WishideaController {
     @PostMapping("/saveCreateWishidea")
     public String postCreateWishidea(@RequestParam ("wishlist_id")int wishlist_id,
                                      @RequestParam ("title") String title,
-                                     @RequestParam ("description") String description,
-                                     @RequestParam("price")Double price)
+                                     @RequestParam ("description") String description)
     {
 
         //Here you can add java code to example add img from Video 2 16min
@@ -52,14 +51,6 @@ public class WishideaController {
         return "redirect:/showFriendsWishbyWishList_id?id=" + wishlist_id;
 
     }
-
-    @GetMapping("/getUpdateWishidea")
-    public String updateWishidea(@RequestParam("id") int id, Model model) {
-        Wishidea wishidea = wishideaRepository.getWishideabyID(id);
-        model.addAttribute("wishidea", wishidea);
-        return "updatewishidea";
-    }
-
 
 
     @PostMapping("/saveUpdateWishidea")
@@ -94,7 +85,7 @@ public class WishideaController {
 
         wishideaRepository.deleteWishidea(id);
 
-        return "redirect:/showwishidea?wishlist_id=" + wishlist_id;
+        return "redirect:/wishPage?WishList_id=" + wishlist_id;
     }
 
 }
