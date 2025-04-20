@@ -58,14 +58,14 @@
   });
 </script>
 
+<h1 class="main-title">Her ser du gaveidéer fra venner til denne ønskeliste</h1>
+
 <div class="create-wishidea-btn-container">
   <a th:href="@{/getcreatewishidea(wishlist_id=${wishlist.id})}" class="create-wishidea-btn">
     Opret ønskeidé
   </a>
 </div>
 
-
-<h1 class="main-title">Her ser du gaveidéer fra venner til denne ønskeliste</h1>
 
 <div class="container">
   <div class="square" th:each="wishidea : ${wishidealist}" th:data-id="${wishidea.id}">

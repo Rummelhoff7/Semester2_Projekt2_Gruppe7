@@ -219,6 +219,7 @@ img {
     height: 23em;
     margin-top: 8%;
     margin-bottom: 13%;
+
 }
 
 .real_login_btn{
@@ -229,6 +230,7 @@ img {
     font-size: 75px;
     font-family: auto;
     color: white;
+    cursor: pointer;
 }
 
 .footer{
