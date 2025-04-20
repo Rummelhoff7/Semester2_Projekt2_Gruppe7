@@ -19,7 +19,10 @@
         <h1>Gavelisten</h1>
     </div>
 </div>
-<h1 class="main-title">Her ser du dine ønskelister</h1>
+<h1 class="main-title" th:text="'Velkommen, ' + ${user.name} + '. Her ser du dine ønskelister.'">
+    Velkommen, [Brugernavn]! Her ser du dine ønskelister.
+</h1>
+
 <div class="container">
     <div class="square" th:each="wishlist:${wishListing}" th:data-id="${wishlist.id}">
         <img th:src="@{'/img/'+${wishlist.img}}"alt="Wish image"/>
