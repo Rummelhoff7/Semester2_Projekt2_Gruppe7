@@ -6,27 +6,11 @@ public class Wishidea {
     private String title;
     private String description;
 
-    public Wishidea(int id, int wishlist_id, String title, String description) {
-        this.id = id;
-        this.wishlist_id = wishlist_id;
-        this.title = title;
-        this.description = description;
-    }
-
-    /*
-    public Wishidea(int id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
-    */
-
     public Wishidea(int wishlistId, String title, String description) {
         this.wishlist_id = wishlistId;
         this.title = title;
         this.description = description;
     }
-
 
     public Wishidea() {}
 
@@ -61,6 +45,5 @@ public class Wishidea {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
 }

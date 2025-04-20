@@ -108,7 +108,6 @@ public class UserRepository {
     }
 
 
-
     public boolean saveUser (User user){
         //Skriver ikke id, da sql database-id er på AUTO INCREMENT.
       String sql = "INSERT INTO user (name, password) VALUES (?,?)";
@@ -134,11 +133,6 @@ public class UserRepository {
                   user.setId(generatedId);
               }
           }
-
-
-
-
-
           return true;
 
           //Denne exception hjælper med at håndtere sql, når et username allerede findes.

@@ -1,6 +1,5 @@
 package org.example.semester2_projekt2_gruppe7.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.example.semester2_projekt2_gruppe7.model.Wishidea;
 import org.example.semester2_projekt2_gruppe7.repository.WishideaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
