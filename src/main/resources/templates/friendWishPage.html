@@ -21,7 +21,7 @@
 <h1 class="main-title" th:text="${wishlist.name}">Ønskeliste-navn</h1>
 
 <div class="container">
-  <div class="friend_square" th:each="wish : ${wishList}" th:data-id="${wishlist.id}">
+  <div class="square_none_hoover" th:each="wish : ${wishList}" th:data-id="${wishlist.id}">
     <img th:src="@{'/img/' + ${wish.img}}" alt="Wish image"/>
     <div>
       <label>Navn:</label>

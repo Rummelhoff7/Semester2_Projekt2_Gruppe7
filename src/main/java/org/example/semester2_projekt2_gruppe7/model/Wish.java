@@ -24,10 +24,6 @@ public class Wish {
         this.price = price;
     }
 
-
-
-
-
     public Wish(int id, int user_id, String name, String description, String img, double price) {
         this.id = id;
         this.wishlist_id = user_id;
